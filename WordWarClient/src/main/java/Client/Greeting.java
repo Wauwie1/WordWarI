@@ -1,4 +1,4 @@
-package com.wordwargroup.wordwarserver;
+package Client;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

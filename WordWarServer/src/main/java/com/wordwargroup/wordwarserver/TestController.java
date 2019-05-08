@@ -14,7 +14,13 @@ public class TestController {
 
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Greeting(counter.incrementAndGet(),
-                String.format(template, name));
+        Value value = new Value();
+        value.setId((long)1);
+        value.setQuote("Testje");
+        Greeting response = new Greeting();
+        response.setType("ok");
+        response.setValue(value);
+
+        return response;
     }
 }
