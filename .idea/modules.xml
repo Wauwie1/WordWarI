@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WordWarI.iml" filepath="$PROJECT_DIR$/WordWarI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WordWarServer/WordWarServer.iml" filepath="$PROJECT_DIR$/WordWarServer/WordWarServer.iml" />
     </modules>
   </component>
 </project>
