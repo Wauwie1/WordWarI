@@ -1,8 +1,8 @@
 package Responses;
 
-public class Response implements IResponse<Object> {
+public abstract class Response<T> implements IResponse<T> {
     private String status;
-    private Object value;
+    private T value;
 
     public Response() {
     }
@@ -14,11 +14,11 @@ public class Response implements IResponse<Object> {
         this.status = status;
     }
 
-    public Object getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(Object object) {
+    public void setValue(T object) {
         this.value = object;
     }
 
