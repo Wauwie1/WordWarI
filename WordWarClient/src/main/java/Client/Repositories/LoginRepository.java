@@ -4,13 +4,16 @@ import Client.Interfaces.ILoginRepository;
 import Models.User;
 import Responses.IResponse;
 import Responses.Response;
+import Responses.UserResponse;
 import org.springframework.web.client.RestTemplate;
 
 public class LoginRepository implements ILoginRepository {
 
+    private final String server = "http://localhost:8081/";
+
     public User login(String username, String password) {
         RestTemplate restTemplate = new RestTemplate();
-        IResponse<User> response = restTemplate.getForObject("http://localhost:8081/login", Response.class);
+        IResponse<User> response = restTemplate.getForObject(server + "login?username=" + username, UserResponse.class);
 
         User user = null;
         try {

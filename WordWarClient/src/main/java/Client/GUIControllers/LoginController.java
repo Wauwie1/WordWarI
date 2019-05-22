@@ -1,10 +1,9 @@
 package Client.GUIControllers;
 
 import Client.Interfaces.ILoginRepository;
+import Client.MyStompSessionHandler;
 import Client.Repositories.LoginRepository;
 import Models.User;
-import Responses.IResponse;
-import Responses.Response;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,16 +11,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.simp.stomp.StompSessionHandler;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.socket.client.WebSocketClient;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
-
-import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -42,10 +38,8 @@ public class LoginController {
     public void Button_Login_Clicked(ActionEvent actionEvent) throws Exception {
 
 
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         login(stage);
-
-
 
 
 
@@ -67,7 +61,7 @@ public class LoginController {
         String password = Textfield_Password.getText();
 
         User user = loginRepository.login(username, password);
-
+        
         switchToLobby(stage, user);
     }
 

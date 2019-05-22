@@ -1,6 +1,6 @@
 package Responses;
 
-public abstract class Response<T> implements IResponse<T> {
+public class Response<T> implements IResponse<T> {
     private String status;
     private T value;
 
