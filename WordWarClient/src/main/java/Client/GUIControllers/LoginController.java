@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -20,16 +21,16 @@ import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.util.Scanner;
 
 public class LoginController {
 
     ILoginRepository loginRepository;
 
-    @FXML
-    public TextField Textfield_Username;
-    @FXML
-    public PasswordField Textfield_Password;
+    @FXML public TextField Textfield_Username;
+    @FXML public PasswordField Textfield_Password;
+    @FXML public Label Label_Error;
 
     public LoginController() {
         loginRepository = new LoginRepository();
@@ -39,7 +40,12 @@ public class LoginController {
 
 
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        login(stage);
+        try {
+            login(stage);
+        }catch (Exception exception) {
+            System.out.println("Could not connect to server.");
+            Label_Error.setText("Could not connect to server");
+        }
 
 
 
@@ -61,7 +67,7 @@ public class LoginController {
         String password = Textfield_Password.getText();
 
         User user = loginRepository.login(username, password);
-        
+
         switchToLobby(stage, user);
     }
 
