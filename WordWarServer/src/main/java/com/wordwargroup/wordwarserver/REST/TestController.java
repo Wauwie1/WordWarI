@@ -1,4 +1,4 @@
-package com.wordwargroup.wordwarserver;
+package com.wordwargroup.wordwarserver.REST;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +16,7 @@ public class TestController {
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
         Value value = new Value();
         value.setId((long)1);
-        value.setQuote("Testje");
+        value.setQuote("Testje " + name);
         Greeting response = new Greeting();
         response.setType("ok");
         response.setValue(value);

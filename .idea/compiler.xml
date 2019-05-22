@@ -8,12 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="wordwarclient" />
         <module name="wordwarserver" />
+        <module name="WordWarShared" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="wordwarclient" target="1.5" />
       <module name="WordWarI" target="1.5" />
       <module name="wordwarserver" target="1.8" />
+      <module name="WordWarShared" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

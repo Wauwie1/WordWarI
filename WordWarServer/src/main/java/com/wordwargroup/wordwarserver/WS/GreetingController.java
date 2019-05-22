@@ -1,6 +1,6 @@
 package com.wordwargroup.wordwarserver.WS;
 
-import com.wordwargroup.wordwarserver.Greeting;
+import com.wordwargroup.wordwarserver.REST.Greeting;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
