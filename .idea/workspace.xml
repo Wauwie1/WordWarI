@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/Repositories/IDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/Repositories/MockDatabaseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/Repositories/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/Repositories/LoginRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WordWarShared/src/main/java/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarShared/src/main/java/Models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,10 +64,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
+            <state relative-caret-position="1183">
               <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -81,25 +77,39 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Repositories/LoginRepository.java">
+        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="173" selection-start-line="7" selection-start-column="173" selection-end-line="7" selection-end-column="173" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="347">
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#371#372#0" expanded="true" />
+                <element signature="e#396#397#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/resources/login.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="307" selection-start-line="10" selection-start-column="254" selection-end-line="10" selection-end-column="307" />
+        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Repositories/LoginRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -156,10 +166,8 @@
         <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/Controller.java" />
         <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/Controller.java" />
         <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/Main.java" />
-        <option value="$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml" />
         <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/Interfaces/ILoginRepository.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Responses/IResponse.java" />
-        <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Responses/Response.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Responses/UserResponse.java" />
         <option value="$PROJECT_DIR$/WordWarClient/src/main/resources/login.fxml" />
@@ -170,6 +178,8 @@
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/Repositories/MockDatabaseRepository.java" />
         <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java" />
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/UserController.java" />
+        <option value="$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml" />
+        <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java" />
       </list>
     </option>
   </component>
@@ -198,6 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -382,7 +393,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -400,7 +410,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558734960350" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558735393455" />
     <property name="dynamic.classpath" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -600,18 +610,19 @@
       <workItem from="1558509333532" duration="1524000" />
       <workItem from="1558511163141" duration="7265000" />
       <workItem from="1558554702246" duration="487000" />
-      <workItem from="1558731134311" duration="3551000" />
+      <workItem from="1558731134311" duration="4175000" />
+      <workItem from="1558735666700" duration="1000000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36092000" />
+    <option name="totallyTimeSpent" value="37716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21588486" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21801706" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Web" order="3" side_tool="true" />
@@ -621,8 +632,8 @@
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30552545" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997833" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30552545" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -823,14 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="181" selection-start-line="6" selection-start-column="181" selection-end-line="6" selection-end-column="181" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GreetingController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -858,13 +861,6 @@
             <element signature="e#317#318#0" expanded="true" />
             <element signature="e#345#346#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -956,21 +952,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/resources/login.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="307" selection-start-line="10" selection-start-column="254" selection-end-line="10" selection-end-column="307" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Interfaces/ILoginRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -978,9 +959,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/resources/login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="10" column="135" lean-forward="true" selection-start-line="10" selection-start-column="135" selection-end-line="10" selection-end-column="173" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Repositories/LoginRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="242">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -988,12 +977,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
+        <state relative-caret-position="1183">
           <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="173" selection-start-line="7" selection-start-column="173" selection-end-line="7" selection-end-column="173" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+            <element signature="e#396#397#0" expanded="true" />
           </folding>
         </state>
       </provider>
