@@ -4,6 +4,8 @@ import Models.User;
 import Responses.IResponse;
 import Responses.Response;
 import Responses.UserResponse;
+import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
+import com.wordwargroup.wordwarserver.REST.Repositories.MockDatabaseRepository;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,19 +21,26 @@ import java.util.Arrays;
 @RestController
 public class UserController {
 
-    private static final String database = "https://wordwarone-8c3e.restdb.io/rest/";
+    private static final IDatabase database = new MockDatabaseRepository();
+    private static final String databaseString = "https://wordwarone-8c3e.restdb.io/rest/";
 
     @CrossOrigin
     @RequestMapping("/login")
     public IResponse<User> login(@RequestParam(value="username", defaultValue="") String username,
                            @RequestParam(value="password", defaultValue="") String password) {
 
-        System.out.println(username);
-
         IResponse response = new UserResponse();
-        response.setStatus("200");
-        User user = new User();
-        user.setUsername(username);
+        User user = database.login(username, password);
+
+        if(user != null){
+            response.setStatus("200");
+            response.setValue(user);
+        }else {
+            response.setStatus("401");
+            response.setValue(null);
+        }
+
+
         response.setValue(user);
 
 //        RestTemplate restTemplate = new RestTemplate();
@@ -44,7 +53,7 @@ public class UserController {
 //        String sort = "{\"username\":\"tgouninm\"}";
 //        String GETUser = null;
 //
-//        GETUser = database + "user?q=";
+//        GETUser = databaseString + "user?q=";
 
 
 //        System.out.println(GETUser);

@@ -68,7 +68,11 @@ public class LoginController {
 
         User user = loginRepository.login(username, password);
 
-        switchToLobby(stage, user);
+        if(user != null) {
+            switchToLobby(stage, user);
+        }else {
+            Label_Error.setText("Incorrect password/username");
+        }
     }
 
     private void switchToLobby(Stage stage, User user) throws IOException

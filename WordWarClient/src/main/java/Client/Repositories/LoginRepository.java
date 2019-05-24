@@ -13,7 +13,8 @@ public class LoginRepository implements ILoginRepository {
 
     public User login(String username, String password) {
         RestTemplate restTemplate = new RestTemplate();
-        IResponse<User> response = restTemplate.getForObject(server + "login?username=" + username, UserResponse.class);
+        String url = server + "login?username=" + username + "&password=" + password;
+        IResponse<User> response = restTemplate.getForObject(url, UserResponse.class);
 
         User user = null;
         try {
