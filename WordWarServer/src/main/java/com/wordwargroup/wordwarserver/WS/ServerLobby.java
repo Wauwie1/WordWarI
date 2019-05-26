@@ -1,12 +1,15 @@
 package com.wordwargroup.wordwarserver.WS;
 
+import Interfaces.ILobby;
 import Models.GameState;
 import Models.Player;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ServerLobby {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ServerLobby implements ILobby {
 
     private int id;
     private ArrayList<Player> players = new ArrayList<>();
@@ -20,6 +23,22 @@ public class ServerLobby {
     public int getId() {
         return id;
     }
+
+    @Override
+    public void setId(int id) {
+
+    }
+
+    @Override
+    public ArrayList<Player> getPlayers() {
+        return null;
+    }
+
+    @Override
+    public void setPlayers(ArrayList<Player> players) {
+
+    }
+
     public void addPlayer(Player player) {
         players.add(player);
         if(players.size() == 2){
@@ -40,10 +59,17 @@ public class ServerLobby {
 
     public boolean isFull(){
         if(players.size() == 2){
-            return false;
-        }else {
             return true;
+        }else {
+            return false;
         }
     }
 
+    public GameState getState() {
+        return state;
+    }
+
+    public void setState(GameState state) {
+        this.state = state;
+    }
 }

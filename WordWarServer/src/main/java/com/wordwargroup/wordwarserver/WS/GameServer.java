@@ -1,6 +1,9 @@
 package com.wordwargroup.wordwarserver.WS;
 
+import Actions.ServerToClient;
 import Models.Player;
+import Models.User;
+import Responses.Response;
 
 import java.util.ArrayList;
 
@@ -11,10 +14,21 @@ public class GameServer {
         lobbies.add(new ServerLobby());
     }
 
-    public ServerLobby findMockMatch(Player player) {
+    public Response findMockMatch(User user) {
+        Player player = new Player(user, 100);
         ServerLobby lobby = lobbies.get(0);
         lobby.addPlayer(player);
-        return lobby;
+
+        Response response = new Response();
+        if(lobby.isFull()){
+            System.out.println("Opponent found");
+            response.setAction(ServerToClient.GAME_FOUND);
+        }else {
+            System.out.println("Searching...");
+            response.setAction(ServerToClient.SEARCHING);
+        }
+        response.setData(lobby);
+        return response;
     }
 
     // TODO: Fix function

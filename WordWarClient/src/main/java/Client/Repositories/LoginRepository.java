@@ -3,7 +3,7 @@ package Client.Repositories;
 import Client.Interfaces.ILoginRepository;
 import Models.User;
 import Responses.IResponse;
-import Responses.Response;
+import Responses.IRestResponse;
 import Responses.UserResponse;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,7 +14,7 @@ public class LoginRepository implements ILoginRepository {
     public User login(String username, String password) {
         RestTemplate restTemplate = new RestTemplate();
         String url = server + "login?username=" + username + "&password=" + password;
-        IResponse<User> response = restTemplate.getForObject(url, UserResponse.class);
+        IRestResponse<User> response = restTemplate.getForObject(url, UserResponse.class);
 
         User user = null;
         try {

@@ -3,7 +3,11 @@ package Client;
 import Actions.ClientToServer;
 import Actions.ServerToClient;
 import Models.User;
-import Requests.FindMatchRequest;
+import Requests.FindMatchData;
+import Requests.Request;
+import Responses.IResponse;
+import Responses.Response;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
@@ -32,27 +36,42 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
     public void handleException(StompSession session, StompCommand command, StompHeaders headers, byte[] payload, Throwable exception) {
         System.out.println("Got an exception");
         System.out.println(exception);
+        exception.printStackTrace();
     }
 
     @Override
     public Type getPayloadType(StompHeaders headers) {
-        return ServerToClient.class;
+        return Response.class;
     }
 
     @Override
     public void handleFrame(StompHeaders headers, Object payload) {
-        ServerToClient msg = (ServerToClient) payload;
-        System.out.println(msg);
+
+        IResponse msg = (Response) payload;
+        ObjectMapper mapper = new ObjectMapper();
+        switch (msg.getAction()){
+            case SEARCHING:
+                System.out.println("Searching for opponent...");
+                return;
+            case GAME_FOUND:
+                ClientLobby lobby = mapper.convertValue(msg.getData(), ClientLobby.class) ;
+                System.out.println("Opponent found: " + lobby.getId());
+                return;
+                default:
+                    System.out.println("Received unknown action.");
+                    return;
+
+        }
     }
 
     /**
      * A sample message instance.
      * @return instance of <code>Message</code>
      */
-    private FindMatchRequest getSampleMessage() {
-        FindMatchRequest msg = new FindMatchRequest();
-        msg.setAction(ClientToServer.SEARCH_GAME);
-        msg.setUser(user);
-        return msg;
+    private Request getSampleMessage() {
+        Request request = new Request();
+        request.setAction(ClientToServer.SEARCH_GAME);
+        request.setData(user);
+        return request;
     }
 }

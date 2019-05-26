@@ -2,7 +2,7 @@ package Responses;
 
 import Models.User;
 
-public class UserResponse implements IResponse<User> {
+public class UserResponse implements IRestResponse<User> {
     private String status;
     private User value;
 

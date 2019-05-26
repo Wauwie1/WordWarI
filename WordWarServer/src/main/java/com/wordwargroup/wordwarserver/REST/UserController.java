@@ -2,20 +2,14 @@ package com.wordwargroup.wordwarserver.REST;
 
 import Models.User;
 import Responses.IResponse;
-import Responses.Response;
+import Responses.IRestResponse;
 import Responses.UserResponse;
 import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
 import com.wordwargroup.wordwarserver.REST.Repositories.MockDatabaseRepository;
-import org.springframework.http.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Arrays;
 
 
 @RestController
@@ -26,10 +20,10 @@ public class UserController {
 
     @CrossOrigin
     @RequestMapping("/login")
-    public IResponse<User> login(@RequestParam(value="username", defaultValue="") String username,
-                           @RequestParam(value="password", defaultValue="") String password) {
+    public IRestResponse<User> login(@RequestParam(value="username", defaultValue="") String username,
+                                     @RequestParam(value="password", defaultValue="") String password) {
 
-        IResponse response = new UserResponse();
+        IRestResponse response = new UserResponse();
         User user = database.login(username, password);
 
         if(user != null){

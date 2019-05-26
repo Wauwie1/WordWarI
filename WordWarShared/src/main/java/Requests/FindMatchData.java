@@ -3,18 +3,9 @@ package Requests;
 import Actions.ClientToServer;
 import Models.User;
 
-public class FindMatchRequest implements IRequest<User> {
+public class FindMatchData {
     private ClientToServer action;
     private User user;
-
-
-    public ClientToServer getAction() {
-        return action;
-    }
-
-    public void setAction(ClientToServer action) {
-        this.action = action;
-    }
 
     public User getUser() {
         return user;
@@ -22,5 +13,13 @@ public class FindMatchRequest implements IRequest<User> {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public ClientToServer getAction() {
+        return action;
+    }
+
+    public void setAction(ClientToServer action) {
+        this.action = action;
     }
 }

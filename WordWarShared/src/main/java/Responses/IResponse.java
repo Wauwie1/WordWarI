@@ -1,9 +1,11 @@
 package Responses;
 
-public interface IResponse<T> {
-    String getStatus();
-    void setStatus(String status);
-    T getValue();
-    void setValue(T object);
+import Actions.ServerToClient;
+
+public interface IResponse {
+    ServerToClient getAction();
+    void setAction(ServerToClient action);
+    Object getData();
+    void setData(Object object);
     String toString();
 }

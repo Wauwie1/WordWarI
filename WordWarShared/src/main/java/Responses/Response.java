@@ -1,30 +1,32 @@
 package Responses;
 
-public class Response<T> implements IResponse<T> {
-    private String status;
-    private T value;
+import Actions.ServerToClient;
+
+public class Response implements IResponse {
+    private ServerToClient action;
+    private Object data;
 
     public Response() {
     }
-    public String getStatus() {
-        return status;
+    public ServerToClient getAction() {
+        return action;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAction(ServerToClient action) {
+        this.action = action;
     }
 
-    public T getValue() {
-        return value;
+    public Object getData() {
+        return data;
     }
 
-    public void setValue(T object) {
-        this.value = object;
+    public void setData(Object data) {
+        this.data = data;
     }
 
     @Override
     public String toString() {
 
-        return String.format("Status = %s. Value: %s.", status, value);
+        return String.format("Action = %s. Data: %s.", action, data);
     }
 }
