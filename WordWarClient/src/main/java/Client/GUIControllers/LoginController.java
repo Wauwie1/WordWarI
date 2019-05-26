@@ -46,20 +46,6 @@ public class LoginController {
             System.out.println("Could not connect to server.");
             Label_Error.setText("Could not connect to server");
         }
-
-
-
-
-//        String URL = "ws://localhost:8081/tutorialspoint-websocket";
-//        WebSocketClient client = new StandardWebSocketClient();
-//
-//        WebSocketStompClient stompClient = new WebSocketStompClient(client);
-//        stompClient.setMessageConverter(new MappingJackson2MessageConverter());
-//
-//        StompSessionHandler sessionHandler = new MyStompSessionHandler();
-//        stompClient.connect(URL, sessionHandler);
-//
-//        new Scanner(System.in).nextLine();
     }
 
     private void login(Stage stage) throws IOException {

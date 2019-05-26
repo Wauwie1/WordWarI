@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #5F5A6D;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.GUIControllers.LobbyController">
    <children>
-      <Button fx:id="Button_Play" layoutX="378.0" layoutY="-25.0" mnemonicParsing="false" prefHeight="143.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 250; -fx-border-width: 2;" text="Play" textAlignment="CENTER">
+      <Button fx:id="Button_Play" layoutX="378.0" layoutY="-25.0" mnemonicParsing="false" onAction="#Button_Play_Click" prefHeight="143.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 250; -fx-border-width: 2;" text="Play" textAlignment="CENTER">
          <font>
             <Font size="46.0" />
          </font></Button>

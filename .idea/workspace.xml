@@ -4,7 +4,12 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/MyStompSessionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarClient/src/main/java/Client/MyStompSessionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GreetingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/WebSocketConfig.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,58 +70,110 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java">
+        <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1183">
-              <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
+            <state relative-caret-position="396">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="173" selection-start-line="7" selection-start-column="173" selection-end-line="7" selection-end-column="173" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#371#372#0" expanded="true" />
-                <element signature="e#396#397#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Repositories/LoginRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Main.java">
+        <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GameServer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="51" column="58" lean-forward="true" selection-start-line="51" selection-start-column="58" selection-end-line="51" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Requests/FindMatchRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#204#205#0" expanded="true" />
+                <element signature="e#231#232#0" expanded="true" />
+                <element signature="e#285#286#0" expanded="true" />
+                <element signature="e#321#322#0" expanded="true" />
+                <element signature="e#373#374#0" expanded="true" />
+                <element signature="e#400#401#0" expanded="true" />
+                <element signature="e#438#439#0" expanded="true" />
+                <element signature="e#470#471#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/Response.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Requests/Request.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+              <folding>
+                <element signature="e#132#133#0" expanded="true" />
+                <element signature="e#159#160#0" expanded="true" />
+                <element signature="e#249#250#0" expanded="true" />
+                <element signature="e#284#285#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/UserResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+              <folding>
+                <element signature="e#251#252#0" expanded="true" />
+                <element signature="e#287#288#0" expanded="true" />
+                <element signature="e#317#318#0" expanded="true" />
+                <element signature="e#345#346#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/MyStompSessionHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="e#605#606#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,6 +184,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -152,10 +210,7 @@
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/Greeting.java" />
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/TestController.java" />
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/WebsocketConfig.java" />
-        <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GreetingController.java" />
-        <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/WebSocketConfig.java" />
         <option value="$PROJECT_DIR$/WordWarClient/pom.xml" />
-        <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/MyStompSessionHandler.java" />
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/TestController.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Response.java" />
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WebSecurityConfiguration.java" />
@@ -176,10 +231,26 @@
         <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/Repositories/LoginRepository.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Models/User.java" />
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/Repositories/MockDatabaseRepository.java" />
-        <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java" />
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/UserController.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Value.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Responses/WebSocketConfig.java" />
+        <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GreetingController.java" />
+        <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/WebSocketConfig.java" />
         <option value="$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml" />
+        <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/Player.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Models/GameState.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Actions/ClientToServer.java" />
+        <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/ServerLobby.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Actions/ServerToClient.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Models/Player.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Requests/IRequest.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Requests/Request.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Requests/FindMatchRequest.java" />
+        <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GameServer.java" />
+        <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GameController.java" />
         <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java" />
+        <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/MyStompSessionHandler.java" />
       </list>
     </option>
   </component>
@@ -192,8 +263,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -208,7 +278,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -260,26 +329,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Client" type="462c0819:PsiDirectoryNode" />
               <item name="GUIControllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WordWarI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WordWarI" type="462c0819:PsiDirectoryNode" />
-              <item name="WordWarClient" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WordWarI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WordWarI" type="462c0819:PsiDirectoryNode" />
-              <item name="WordWarClient" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WordWarI" type="b2602c69:ProjectViewProjectNode" />
@@ -342,8 +391,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="wordwarserver" type="462c0819:PsiDirectoryNode" />
-              <item name="REST" type="462c0819:PsiDirectoryNode" />
-              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
+              <item name="WS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WordWarI" type="b2602c69:ProjectViewProjectNode" />
@@ -370,15 +418,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WordWarI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WordWarI" type="462c0819:PsiDirectoryNode" />
-              <item name="WordWarShared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WordWarI" type="b2602c69:ProjectViewProjectNode" />
@@ -393,6 +432,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -410,16 +450,18 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558735393455" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558874885495" />
     <property name="dynamic.classpath" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Paul_Laptop\Documents\Fontys\S3\WordWarI\src\main\resources" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.wordwargroup.wordwarserver.WS" />
+      <recent name="Client" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="com.wordwargroup.wordwarserver" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -429,8 +471,8 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Client" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Client" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Paul_Laptop\Documents\Fontys\S3\WordWarI\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -445,7 +487,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Spring Boot.WordwarserverApplication (1)">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -464,13 +506,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client.Main" />
       <module name="wordwarclient" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Client.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -478,18 +520,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application">
+    <configuration name="Main2" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Client.Main" />
-      <module name="WordWarI" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Client.GUIControllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+      <module name="wordwarclient" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -536,13 +569,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WordwarserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="WordWarServer" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wordwargroup.wordwarserver.WordwarserverApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="WordwarserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="wordwarserver" />
       <extension name="coverage">
@@ -578,15 +604,14 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main2" />
       <item itemvalue="Application.Main (1)" />
-      <item itemvalue="Spring Boot.WordwarserverApplication" />
       <item itemvalue="Spring Boot.WordwarserverApplication (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Spring Boot.WordwarserverApplication (1)" />
+        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -611,18 +636,18 @@
       <workItem from="1558511163141" duration="7265000" />
       <workItem from="1558554702246" duration="487000" />
       <workItem from="1558731134311" duration="4175000" />
-      <workItem from="1558735666700" duration="1000000" />
+      <workItem from="1558735666700" duration="1240000" />
+      <workItem from="1558867663894" duration="6249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37716000" />
+    <option name="totallyTimeSpent" value="44205000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21801706" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22014925" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Web" order="3" side_tool="true" />
@@ -631,9 +656,9 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30552545" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30552545" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -674,10 +699,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java</url>
-          <line>68</line>
+          <url>file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GameController.java</url>
+          <line>17</line>
           <properties />
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -692,42 +717,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1496">
-          <caret line="381" column="29" selection-start-line="381" selection-start-column="29" selection-end-line="381" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Value.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          <folding>
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#213#214#0" expanded="true" />
-            <element signature="e#245#246#0" expanded="true" />
-            <element signature="e#278#279#0" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
-            <element signature="e#382#383#0" expanded="true" />
-            <element signature="e#416#417#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WordWarClient/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="880">
@@ -735,54 +724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Greeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-          <folding>
-            <element signature="e#258#259#0" expanded="true" />
-            <element signature="e#285#286#0" expanded="true" />
-            <element signature="e#325#326#0" expanded="true" />
-            <element signature="e#357#358#0" expanded="true" />
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#416#417#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/MyStompSessionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="16" column="58" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/WebSocketConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="80" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WordWarShared/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/Value.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -824,46 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GreetingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/IResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/UserResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding>
-            <element signature="e#251#252#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#317#318#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36366">
@@ -871,55 +776,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/Greeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#314#315#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.6.RELEASE/spring-web-5.1.6.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#182#183#0" expanded="true" />
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#298#299#0" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-            <element signature="e#387#388#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -936,18 +796,6 @@
           <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WordwarserverApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#269#270#0" expanded="true" />
-            <element signature="e#344#345#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -984,32 +832,308 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/TestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1183">
-          <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
+        <state relative-caret-position="219">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/Greeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/Value.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/Greeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#357#358#0" expanded="true" />
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#491#492#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/Value.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/WebSocketConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/resources/lobby.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="173" selection-start-line="7" selection-start-column="173" selection-end-line="7" selection-end-column="173" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="113" selection-start-line="9" selection-start-column="113" selection-end-line="9" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding>
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Models/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Actions/ClientToServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GreetingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" selection-start-line="9" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Greeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/REST/Greeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/ServerLobby.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Actions/ServerToClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/WebSocketConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Models/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding>
+            <element signature="e#240#241#0" expanded="true" />
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/IResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Requests/IRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/UserResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="e#251#252#0" expanded="true" />
+            <element signature="e#287#288#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Responses/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Requests/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <folding>
+            <element signature="e#132#133#0" expanded="true" />
+            <element signature="e#159#160#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Requests/FindMatchRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#204#205#0" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#321#322#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WordwarserverApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/GUIControllers/LobbyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+        <state relative-caret-position="286">
+          <caret line="51" column="58" lean-forward="true" selection-start-line="51" selection-start-column="58" selection-end-line="51" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/5.1.6.RELEASE/spring-messaging-5.1.6.RELEASE.jar!/org/springframework/messaging/handler/invocation/AbstractMethodMessageHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="383" selection-start-line="383" selection-end-line="383" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-messaging/5.1.6.RELEASE/spring-messaging-5.1.6.RELEASE.jar!/org/springframework/messaging/handler/invocation/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/MyStompSessionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GameServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

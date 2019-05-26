@@ -1,5 +1,9 @@
 package Client;
 
+import Actions.ClientToServer;
+import Actions.ServerToClient;
+import Models.User;
+import Requests.FindMatchRequest;
 import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
@@ -9,13 +13,18 @@ import java.lang.reflect.Type;
 
 public class MyStompSessionHandler extends StompSessionHandlerAdapter {
 
+    private User user = new User();
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public void afterConnected(StompSession session, StompHeaders connectedHeaders) {
         System.out.println("New session established : " + session.getSessionId());
-        session.subscribe("/topic/greetings", this);
-        System.out.println("Subscribed to /topic/greetings");
-        session.send("/app/hello", getSampleMessage());
+        session.subscribe("/topic/findmatch", this);
+        System.out.println("Subscribed to /topic/findmatch");
+        session.send("/app/find", getSampleMessage());
         System.out.println("Message sent to websocket server");
     }
 
@@ -27,23 +36,23 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
 
     @Override
     public Type getPayloadType(StompHeaders headers) {
-        return Greeting.class;
+        return ServerToClient.class;
     }
 
     @Override
     public void handleFrame(StompHeaders headers, Object payload) {
-        Greeting msg = (Greeting) payload;
-        System.out.println("Received : " + msg.getValue() + " from : " + msg.getType());
+        ServerToClient msg = (ServerToClient) payload;
+        System.out.println(msg);
     }
 
     /**
      * A sample message instance.
      * @return instance of <code>Message</code>
      */
-    private Greeting getSampleMessage() {
-        Greeting msg = new Greeting();
-        msg.setValue(new Value());
-        msg.setType("Ok");
+    private FindMatchRequest getSampleMessage() {
+        FindMatchRequest msg = new FindMatchRequest();
+        msg.setAction(ClientToServer.SEARCH_GAME);
+        msg.setUser(user);
         return msg;
     }
 }

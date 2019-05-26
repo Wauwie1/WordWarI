@@ -1,17 +1,23 @@
 package Client.GUIControllers;
 
+import Client.MyStompSessionHandler;
 import Models.User;
 import javafx.animation.Animation;
 import javafx.animation.ScaleTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.Glow;
 import javafx.util.Duration;
+import org.springframework.messaging.converter.MappingJackson2MessageConverter;
+import org.springframework.messaging.simp.stomp.StompSessionHandler;
+import org.springframework.web.socket.client.WebSocketClient;
+import org.springframework.web.socket.client.standard.StandardWebSocketClient;
+import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 public class LobbyController {
 
-    User user;
+    private User user;
 
     @FXML public Button Button_Play;
     @FXML public Label Label_Welcome;
@@ -33,5 +39,17 @@ public class LobbyController {
         this.user = user;
         Label_Welcome.setText("Welcome back " + user.getUsername() + ". Ready to play?");
         System.out.println(this.user);
+    }
+
+    public void Button_Play_Click(ActionEvent actionEvent) {
+        String URL = "ws://localhost:8081/wordwarone";
+        WebSocketClient client = new StandardWebSocketClient();
+
+        WebSocketStompClient stompClient = new WebSocketStompClient(client);
+        stompClient.setMessageConverter(new MappingJackson2MessageConverter());
+
+        StompSessionHandler sessionHandler = new MyStompSessionHandler();
+        ((MyStompSessionHandler) sessionHandler).setUser(user);
+        stompClient.connect(URL, sessionHandler);
     }
 }
