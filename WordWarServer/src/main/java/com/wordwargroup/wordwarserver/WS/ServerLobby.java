@@ -6,6 +6,7 @@ import Models.Player;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,11 +32,11 @@ public class ServerLobby implements ILobby {
 
     @Override
     public ArrayList<Player> getPlayers() {
-        return null;
+        return players;
     }
 
     @Override
-    public void setPlayers(ArrayList<Player> players) {
+    public void setPlayers(List<Player> players) {
 
     }
 

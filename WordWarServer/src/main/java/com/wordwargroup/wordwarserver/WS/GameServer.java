@@ -15,7 +15,9 @@ public class GameServer {
     }
 
     public Response findMockMatch(User user) {
-        Player player = new Player(user, 100);
+        Player player = new Player();
+        player.setUser(user);
+        player.setLives(100);
         ServerLobby lobby = lobbies.get(0);
         lobby.addPlayer(player);
 

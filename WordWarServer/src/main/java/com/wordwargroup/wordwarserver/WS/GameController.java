@@ -23,7 +23,8 @@ public class GameController {
         switch (message.getAction()) {
             case SEARCH_GAME:
                 User user =  mapper.convertValue(message.getData(), User.class) ;
-                return server.findMockMatch(user);
+                Response response = server.findMockMatch(user);
+                return response;
             default:
                 return null;
         }

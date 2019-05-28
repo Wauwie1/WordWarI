@@ -1,11 +1,13 @@
 package Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
     private int id;
     private String username;
 
     public User() {
-
     }
 
     public String getUsername() {

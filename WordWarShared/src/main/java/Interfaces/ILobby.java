@@ -4,15 +4,16 @@ import Models.GameState;
 import Models.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ILobby {
      int getId();
 
      void setId(int id);
 
-     ArrayList<Player> getPlayers();
+     List<Player> getPlayers();
 
-     void setPlayers(ArrayList<Player> players);
+     void setPlayers(List<Player> players);
 
      GameState getState();
 

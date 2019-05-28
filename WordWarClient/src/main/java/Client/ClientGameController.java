@@ -4,6 +4,7 @@ import Actions.ClientToServer;
 import Client.GUIControllers.GameGUIController;
 import Client.GUIControllers.LobbyController;
 import Client.GUIControllers.LoginController;
+import Models.Player;
 import Models.User;
 import Requests.IRequest;
 import Requests.Request;
@@ -13,6 +14,8 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.springframework.messaging.simp.stomp.StompSession;
 
+import java.util.ArrayList;
+
 public class ClientGameController {
 
     // WS
@@ -20,7 +23,7 @@ public class ClientGameController {
     private MyStompSessionHandler stompSessionHandler;
     public StompSession session;
 
-    // GUI Controllers
+    // GUI Controllers TODO: Make seperate class?
     private Stage stage;
     private LoginController loginController;
     private LobbyController lobbyController;
@@ -28,7 +31,7 @@ public class ClientGameController {
 
     // Game variables
     public User user;
-    private ClientLobby lobby;
+    public ClientLobby lobby;
 
 
     public void setStompSessionHandler(MyStompSessionHandler stompSessionHandler) {
@@ -49,29 +52,31 @@ public class ClientGameController {
 
     public void setGameGUIController(GameGUIController gameGUIController) { this.gameGUIController = gameGUIController; }
 
-    private void gameFound(ClientLobby lobby) {
-        try {
-            lobbyController.onGameFound(stage);
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void handleMessage(IResponse message) {
         switch (message.getAction()){
             case SEARCHING:
                 System.out.println("Searching for opponent...");
                 return;
             case GAME_FOUND:
-                lobby = mapper.convertValue(message.getData(), ClientLobby.class) ;
+                lobby = mapper.convertValue(message.getData(), ClientLobby.class);
+
                 System.out.println("Opponent found: " + lobby.getId());
-                gameFound(lobby);
+                gameFound();
                 session.subscribe("/topic/game/" + lobby.getId(), stompSessionHandler);
                 System.out.println("Subscribed to /topic/game");
                 return;
             default:
                 System.out.println("Received unknown action.");
                 return;
+        }
+    }
+
+    private void gameFound() {
+        try {
+            lobbyController.onGameFound(stage);
+
+        }catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

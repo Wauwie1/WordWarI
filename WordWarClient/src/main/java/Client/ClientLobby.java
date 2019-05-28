@@ -6,11 +6,12 @@ import Models.Player;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ClientLobby implements ILobby {
     private int id;
-    private ArrayList<Player> players = new ArrayList();
+    private List<Player> players = new ArrayList();
     private GameState state = GameState.NOT_STARTED;
 
     public int getId() {
@@ -21,11 +22,11 @@ public class ClientLobby implements ILobby {
         this.id = id;
     }
 
-    public ArrayList<Player> getPlayers() {
+    public List<Player> getPlayers() {
         return players;
     }
 
-    public void setPlayers(ArrayList<Player> players) {
+    public void setPlayers(List<Player> players) {
         this.players = players;
     }
 

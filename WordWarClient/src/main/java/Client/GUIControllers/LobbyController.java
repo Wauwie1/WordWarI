@@ -70,6 +70,7 @@ public class LobbyController {
         GameGUIController controller = loader.getController();
         controller.setKeyListener(gameScene);
         controller.setGameController(gameController);
+        controller.createGameField();
 
         // Display lobby scene
         Platform.runLater(() -> {
