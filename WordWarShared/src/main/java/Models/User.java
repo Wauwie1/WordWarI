@@ -1,7 +1,7 @@
 package Models;
 
 public class User {
-    private String id;
+    private int id;
     private String username;
 
     public User() {
@@ -16,11 +16,11 @@ public class User {
         this.username = username;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

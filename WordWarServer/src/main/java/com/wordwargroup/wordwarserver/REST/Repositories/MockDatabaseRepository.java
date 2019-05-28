@@ -13,7 +13,7 @@ public class MockDatabaseRepository implements IDatabase {
         users = new HashMap<>();
         User user = new User();
         user.setUsername("Test123");
-        user.setId("1");
+        user.setId(5);
 
         users.put(user, "Wachtwoord123");
     }

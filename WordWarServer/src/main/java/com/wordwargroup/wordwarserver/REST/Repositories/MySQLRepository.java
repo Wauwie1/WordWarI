@@ -1,60 +1,51 @@
 package com.wordwargroup.wordwarserver.REST.Repositories;
 
 import Models.User;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.*;
 
 public class MySQLRepository implements IDatabase {
-    private Connection connect = null;
-    private Statement statement = null;
-    private PreparedStatement preparedStatement = null;
-    private ResultSet resultSet = null;
+
+    String connectionUrl = "jdbc:mysql://studmysql01.fhict.local:3306/dbi402348";
+    @Value("${db.user}")
+    private String username;
+    @Value("${db.pass}")
+    private String password;
+
+    String loginQuery = "{CALL Login(?, ?, ?, ?)}";
 
     @Override
     public User login(String username, String password) {
-        try {
-            // This will load the MySQL driver, each DB has its own driver
-            // Class.forName("com.mysql.jdbc.Driver");
-            // Setup the connection with the DB
+        User user = null;
+        try ( Connection connect = DriverManager
+                .getConnection(connectionUrl, "dbi402348", "Ifi4god#");
+                CallableStatement statement = connect.prepareCall(loginQuery)) {
 
-            connect = DriverManager
-                    .getConnection("jdbc:mysql://studmysql01.fhict.local:3306/dbi402348", "dbi402348", "Ifi4god#");
+            // Set IN and OUT parameters
+            statement.setString(1, username);
+            statement.setString(2, password);
+            statement.registerOutParameter(3, Types.INTEGER);
+            statement.registerOutParameter(4, Types.NVARCHAR);
 
-            // Statements allow to issue SQL queries to the database
-            statement = connect.createStatement();
-            // Result set get the result of the SQL query
-            resultSet = statement
-                    .executeQuery("SELECT * FROM users");
-            while (resultSet.next()) {
-                String user = resultSet.getString("Username");
-                System.out.println(user);
+            statement.execute();
+
+            // Get returned user
+            int id = statement.getInt(3);
+            String dbUsername = statement.getString(4);
+            System.out.println(dbUsername + " logged in with id: " + id);
+
+            if(dbUsername != null && id != 0) {
+                user = new User();
+                user.setUsername(dbUsername);
+                user.setId(id);
             }
 
+            return user;
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            close();
-        }
-
-        return null;
-    }
-
-    private void close() {
-        try {
-            if (resultSet != null) {
-                resultSet.close();
-            }
-            if (statement != null) {
-                statement.close();
-            }
-            if (connect != null) {
-                connect.close();
-            }
-        } catch (Exception e) {
+            return user;
         }
     }
-
-
-
 }

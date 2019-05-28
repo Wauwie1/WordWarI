@@ -905,7 +905,7 @@
     </collation>
     <table id="226" parent="2" name="users"/>
     <routine id="227" parent="2" name="Login">
-      <SourceTextLength>111</SourceTextLength>
+      <SourceTextLength>228</SourceTextLength>
       <Definer>dbi402348@%</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
@@ -939,6 +939,16 @@
     </argument>
     <argument id="233" parent="227" name="passwordIn">
       <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </argument>
+    <argument id="234" parent="227" name="idOut">
+      <Position>3</Position>
+      <ArgumentDirection>O</ArgumentDirection>
+      <DataType>int(11)|0s</DataType>
+    </argument>
+    <argument id="235" parent="227" name="usernameOut">
+      <Position>4</Position>
+      <ArgumentDirection>O</ArgumentDirection>
       <DataType>varchar(255)|0s</DataType>
     </argument>
   </database-model>
