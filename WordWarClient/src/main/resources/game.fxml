@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #5F5A6D;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.GUIControllers.GameGUIController">
+   <children>
+      <Label fx:id="Label_Opponent_Word" alignment="CENTER" layoutX="282.0" layoutY="121.0" opacity="0.51" prefHeight="52.0" prefWidth="337.0" text="TESTJE" textFill="#808080">
+         <font>
+            <Font name="Segoe UI" size="42.0" />
+         </font>
+      </Label>
+      <Separator layoutX="218.0" layoutY="234.0" prefWidth="466.0" />
+      <Label fx:id="Label_Word" alignment="CENTER" layoutX="282.0" layoutY="313.0" opacity="0.51" prefHeight="52.0" prefWidth="337.0" text="TESTJE" textFill="#808080">
+         <font>
+            <Font name="Segoe UI" size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="Label_Word1" alignment="CENTER" layoutX="253.0" layoutY="313.0" prefHeight="52.0" prefWidth="337.0" text="TES" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="Label_Opponent_Word1" alignment="CENTER" layoutX="265.0" layoutY="121.0" prefHeight="52.0" prefWidth="337.0" text="TEST" textFill="#bfbfbf">
+         <font>
+            <Font name="Segoe UI" size="42.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
