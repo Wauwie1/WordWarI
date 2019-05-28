@@ -15,12 +15,12 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="Textfield_Username" layoutX="376.0" layoutY="216.0" prefHeight="25.0" prefWidth="149.0" promptText="Username" text="Test123">
+      <TextField fx:id="Textfield_Username" layoutX="376.0" layoutY="216.0" prefHeight="25.0" prefWidth="149.0" promptText="Username" text="cgonsalvez4">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </TextField>
-      <PasswordField fx:id="Textfield_Password" layoutX="376.0" layoutY="257.0" promptText="Password" text="Wachtwoord123" />
+      <PasswordField fx:id="Textfield_Password" layoutX="376.0" layoutY="257.0" promptText="Password" text="r9rlKV" />
       <Label fx:id="Logo" layoutX="223.0" layoutY="52.0" text="WORD WAR I" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="76.0" />

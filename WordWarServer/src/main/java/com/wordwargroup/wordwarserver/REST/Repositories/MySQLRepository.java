@@ -33,12 +33,12 @@ public class MySQLRepository implements IDatabase {
             // Get returned user
             int id = statement.getInt(3);
             String dbUsername = statement.getString(4);
-            System.out.println(dbUsername + " logged in with id: " + id);
 
             if(dbUsername != null && id != 0) {
                 user = new User();
                 user.setUsername(dbUsername);
                 user.setId(id);
+                System.out.println(dbUsername + " logged in with id: " + id);
             }
 
             return user;

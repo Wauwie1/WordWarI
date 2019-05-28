@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private static final IDatabase database = new MySQLRepository();
-    private static final String databaseString = "https://wordwarone-8c3e.restdb.io/rest/";
 
     @CrossOrigin
     @RequestMapping("/login")
@@ -35,28 +34,6 @@ public class UserController {
             response.setValue(null);
         }
 
-
-        response.setValue(user);
-
-//        RestTemplate restTemplate = new RestTemplate();
-//        final HttpHeaders headers = new HttpHeaders();
-//        headers.add("x-apikey", "c79ad9b749660bf90536278e95c11e858af54");
-//        headers.add("cache-control", "no-cache");
-//        headers.setAccept(Arrays.asList(MediaType.ALL));
-//        final HttpEntity<String> entity = new HttpEntity<>(headers);
-//
-//        String sort = "{\"username\":\"tgouninm\"}";
-//        String GETUser = null;
-//
-//        GETUser = databaseString + "user?q=";
-
-
-//        System.out.println(GETUser);
-//        ResponseEntity<Object> response2 = restTemplate.exchange(GETUser, HttpMethod.GET, entity, Object.class);
-//        System.out.println(response2.getBody());
-
-
-        
         return response;
     }
 }
