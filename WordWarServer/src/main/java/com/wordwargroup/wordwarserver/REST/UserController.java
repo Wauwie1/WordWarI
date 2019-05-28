@@ -6,6 +6,7 @@ import Responses.IRestResponse;
 import Responses.UserResponse;
 import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
 import com.wordwargroup.wordwarserver.REST.Repositories.MockDatabaseRepository;
+import com.wordwargroup.wordwarserver.REST.Repositories.MySQLRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    private static final IDatabase database = new MockDatabaseRepository();
+    private static final IDatabase database = new MySQLRepository();
     private static final String databaseString = "https://wordwarone-8c3e.restdb.io/rest/";
 
     @CrossOrigin
