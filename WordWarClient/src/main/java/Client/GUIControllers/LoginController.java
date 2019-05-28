@@ -1,7 +1,7 @@
 package Client.GUIControllers;
 
+import Client.ClientGameController;
 import Client.Interfaces.ILoginRepository;
-import Client.MyStompSessionHandler;
 import Client.Repositories.LoginRepository;
 import Models.User;
 import javafx.event.ActionEvent;
@@ -14,19 +14,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.springframework.messaging.converter.MappingJackson2MessageConverter;
-import org.springframework.messaging.simp.stomp.StompSessionHandler;
-import org.springframework.web.socket.client.WebSocketClient;
-import org.springframework.web.socket.client.standard.StandardWebSocketClient;
-import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 import java.io.IOException;
-import java.net.ConnectException;
-import java.util.Scanner;
 
 public class LoginController {
 
     ILoginRepository loginRepository;
+    private ClientGameController gameController;
 
     @FXML public TextField Textfield_Username;
     @FXML public PasswordField Textfield_Password;
@@ -34,12 +28,15 @@ public class LoginController {
 
     public LoginController() {
         loginRepository = new LoginRepository();
+        gameController = new ClientGameController();
     }
 
     public void Button_Login_Clicked(ActionEvent actionEvent) throws Exception {
 
-
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        gameController.setStage(stage);
+        gameController.setLoginController(this);
+
         try {
             login(stage);
         }catch (Exception exception) {
@@ -70,7 +67,9 @@ public class LoginController {
 
         // Pass user data to controller
         LobbyController controller = loader.getController();
-        controller.setUser(user);
+        gameController.setLobbyController(controller);
+        gameController.setUser(user);
+        controller.setGameController(gameController);
 
         // Display lobby scene
         stage.setScene(lobbyScene);

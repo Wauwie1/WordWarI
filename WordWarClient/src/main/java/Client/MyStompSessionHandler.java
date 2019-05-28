@@ -2,6 +2,9 @@ package Client;
 
 import Actions.ClientToServer;
 import Actions.ServerToClient;
+import Client.GUIControllers.GameGUIController;
+import Client.GUIControllers.LobbyController;
+import Client.GUIControllers.LoginController;
 import Models.User;
 import Requests.FindMatchData;
 import Requests.Request;
@@ -18,14 +21,21 @@ import java.lang.reflect.Type;
 public class MyStompSessionHandler extends StompSessionHandlerAdapter {
 
     private User user = new User();
+    private ClientGameController gameController;
+
+    private LoginController loginController;
+    private LobbyController lobbyController;
+    private GameGUIController gameGUIController;
 
     public void setUser(User user) {
         this.user = user;
     }
+    public void setGameController(ClientGameController controller) { this.gameController = controller; }
 
     @Override
     public void afterConnected(StompSession session, StompHeaders connectedHeaders) {
         System.out.println("New session established : " + session.getSessionId());
+        this.gameController.setSession(session);
         session.subscribe("/topic/findmatch", this);
         System.out.println("Subscribed to /topic/findmatch");
         session.send("/app/find", getSampleMessage());
@@ -56,6 +66,7 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
             case GAME_FOUND:
                 ClientLobby lobby = mapper.convertValue(msg.getData(), ClientLobby.class) ;
                 System.out.println("Opponent found: " + lobby.getId());
+                gameController.gameFound(lobby);
                 return;
                 default:
                     System.out.println("Received unknown action.");
@@ -74,4 +85,5 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
         request.setData(user);
         return request;
     }
+
 }

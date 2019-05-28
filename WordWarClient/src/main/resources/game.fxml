@@ -12,18 +12,18 @@
             <Font name="Segoe UI" size="42.0" />
          </font>
       </Label>
+      <Label fx:id="Label_Opponent_Word_Typed" alignment="CENTER" layoutX="265.0" layoutY="121.0" prefHeight="52.0" prefWidth="337.0" text="TEST" textFill="#bfbfbf">
+         <font>
+            <Font name="Segoe UI" size="42.0" />
+         </font>
+      </Label>
       <Separator layoutX="218.0" layoutY="234.0" prefWidth="466.0" />
       <Label fx:id="Label_Word" alignment="CENTER" layoutX="282.0" layoutY="313.0" opacity="0.51" prefHeight="52.0" prefWidth="337.0" text="TESTJE" textFill="#808080">
          <font>
             <Font name="Segoe UI" size="42.0" />
          </font>
       </Label>
-      <Label fx:id="Label_Word1" alignment="CENTER" layoutX="253.0" layoutY="313.0" prefHeight="52.0" prefWidth="337.0" text="TES" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI" size="42.0" />
-         </font>
-      </Label>
-      <Label fx:id="Label_Opponent_Word1" alignment="CENTER" layoutX="265.0" layoutY="121.0" prefHeight="52.0" prefWidth="337.0" text="TEST" textFill="#bfbfbf">
+      <Label fx:id="Label_Word_Typed" alignment="CENTER" layoutX="253.0" layoutY="313.0" prefHeight="52.0" prefWidth="337.0" text="TES" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="42.0" />
          </font>
