@@ -1,7 +1,6 @@
 package Requests;
 
 import Actions.ClientToServer;
-import Models.User;
 
 public class Request implements IRequest {
     private ClientToServer action;

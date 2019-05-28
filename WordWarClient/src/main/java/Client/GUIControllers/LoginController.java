@@ -68,7 +68,7 @@ public class LoginController {
         // Pass user data to controller
         LobbyController controller = loader.getController();
         gameController.setLobbyController(controller);
-        gameController.setUser(user);
+        gameController.user = user;
         controller.setGameController(gameController);
 
         // Display lobby scene

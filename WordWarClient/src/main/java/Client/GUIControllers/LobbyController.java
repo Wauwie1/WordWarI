@@ -43,7 +43,7 @@ public class LobbyController {
     }
 
     public void setUser(){
-        this.user = gameController.getUser();
+        this.user = gameController.user;
         Label_Welcome.setText("Welcome back " + user.getUsername() + ". Ready to play?");
         System.out.println(this.user);
     }
@@ -56,7 +56,6 @@ public class LobbyController {
         stompClient.setMessageConverter(new MappingJackson2MessageConverter());
 
         StompSessionHandler sessionHandler = new MyStompSessionHandler();
-        ((MyStompSessionHandler) sessionHandler).setUser(user);
         ((MyStompSessionHandler) sessionHandler).setGameController(gameController);
         stompClient.connect(URL, sessionHandler);
     }
