@@ -69,6 +69,7 @@ public class LobbyController {
 
         // Pass user data to controller
         GameGUIController controller = loader.getController();
+        controller.setKeyListener(gameScene);
         controller.setGameController(gameController);
 
         // Display lobby scene
@@ -76,6 +77,7 @@ public class LobbyController {
             stage.setScene(gameScene);
             stage.show();
         });
+
     }
 
     public void setGameController(ClientGameController gameController) {

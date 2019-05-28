@@ -1,9 +1,13 @@
 package Client;
 
+import Actions.ClientToServer;
 import Client.GUIControllers.GameGUIController;
 import Client.GUIControllers.LobbyController;
 import Client.GUIControllers.LoginController;
 import Models.User;
+import Requests.IRequest;
+import Requests.Request;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.springframework.messaging.simp.stomp.StompSession;
 
@@ -52,9 +56,16 @@ public class ClientGameController {
         try {
             lobbyController.onGameFound(stage);
         }catch (Exception e) {
-            System.out.println();
+            e.printStackTrace();
         }
     }
 
 
+    public void sendKeyPress(KeyCode code) {
+        String key = code.toString();
+        IRequest request = new Request();
+        request.setAction(ClientToServer.LETTER_TYPED);
+        ((Request) request).setData(key);
+        session.send("/app/play/20", request);
+    }
 }

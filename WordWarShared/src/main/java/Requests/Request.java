@@ -5,7 +5,7 @@ import Models.User;
 
 public class Request implements IRequest {
     private ClientToServer action;
-    private User data;
+    private Object data;
 
     public ClientToServer getAction() {
         return action;
@@ -15,11 +15,11 @@ public class Request implements IRequest {
         this.action = action;
     }
 
-    public User getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(User data) {
+    public void setData(Object data) {
         this.data = data;
     }
 }

@@ -38,7 +38,7 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
         this.gameController.setSession(session);
         session.subscribe("/topic/findmatch", this);
         System.out.println("Subscribed to /topic/findmatch");
-        session.send("/app/find", getSampleMessage());
+        session.send("/app/find", searchGame());
         System.out.println("Message sent to websocket server");
     }
 
@@ -67,6 +67,8 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
                 ClientLobby lobby = mapper.convertValue(msg.getData(), ClientLobby.class) ;
                 System.out.println("Opponent found: " + lobby.getId());
                 gameController.gameFound(lobby);
+                gameController.getSession().subscribe("/topic/game/20", this);
+                System.out.println("Subscribed to /topic/game");
                 return;
                 default:
                     System.out.println("Received unknown action.");
@@ -79,7 +81,7 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
      * A sample message instance.
      * @return instance of <code>Message</code>
      */
-    private Request getSampleMessage() {
+    private Request searchGame() {
         Request request = new Request();
         request.setAction(ClientToServer.SEARCH_GAME);
         request.setData(user);
