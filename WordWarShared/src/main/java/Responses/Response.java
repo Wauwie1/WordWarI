@@ -13,7 +13,6 @@ public class Response implements IResponse {
 
     @Override
     public String toString() {
-
         return String.format("Action = %s. Data: %s.", action, data);
     }
 }

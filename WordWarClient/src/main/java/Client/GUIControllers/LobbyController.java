@@ -69,6 +69,7 @@ public class LobbyController {
         GameGUIController controller = loader.getController();
         controller.setKeyListener(gameScene);
         controller.setGameController(gameController);
+        gameController.setGameGUIController(controller);
         controller.createGameField();
 
         // Display lobby scene

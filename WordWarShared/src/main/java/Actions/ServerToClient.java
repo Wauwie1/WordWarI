@@ -2,5 +2,6 @@ package Actions;
 
 public enum ServerToClient {
     SEARCHING,
-    GAME_FOUND
+    GAME_FOUND,
+    LETTER_TYPED
 }

@@ -4,13 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Player {
 
     @Getter @Setter private User user;
     @Getter @Setter private int lives;
     @Getter private String currentWord;
-    @Getter @Setter private char[] typedChars;
+    @Getter @Setter private String typedChars = "";
 
     public Player(){
     }
@@ -22,8 +23,13 @@ public class Player {
         currentWord = word;
     }
 
-    public String getCurrentWord() {
-        return currentWord;
+    public void typeCharacter(char typedCharacter) {
+        int index = typedChars.length();
+        char character = currentWord.charAt(index);
+
+        if(character == typedCharacter) {
+            typedChars += typedCharacter;
+        }
     }
 
 }

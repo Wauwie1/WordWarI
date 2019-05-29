@@ -4,6 +4,8 @@ import Actions.ClientToServer;
 import Client.GUIControllers.GameGUIController;
 import Client.GUIControllers.LobbyController;
 import Client.GUIControllers.LoginController;
+import Models.LetterTyped;
+import Models.Player;
 import Models.User;
 import Requests.IRequest;
 import Requests.Request;
@@ -46,6 +48,11 @@ public class ClientGameController {
                 session.subscribe("/topic/game/" + lobby.getId(), stompSessionHandler);
                 System.out.println("Subscribed to /topic/game");
                 return;
+            case LETTER_TYPED:
+                LetterTyped letterTypedMessage = mapper.convertValue(message.getData(), LetterTyped.class);
+                Player player = letterTypedMessage.getPlayer();
+                gameGUIController.charTyped(player);
+                return;
             default:
                 System.out.println("Received unknown action.");
                 return;
@@ -76,11 +83,18 @@ public class ClientGameController {
         System.out.println("Message sent to websocket server");
     }
 
-    public void sendKeyPress(KeyCode code) {
-        String key = code.toString();
+    public void sendKeyPress(KeyCode code, Player player) {
+        String letter = code.toString();
         IRequest request = new Request();
         request.setAction(ClientToServer.LETTER_TYPED);
-        request.setData(key);
+
+        LetterTyped letterTyped = new LetterTyped();
+        letterTyped.setLetter(letter);
+        letterTyped.setPlayer(player);
+        letterTyped.setLobbyId(String.valueOf(lobby.getId()));
+
+
+        request.setData(letterTyped);
         session.send("/app/play/" + lobby.getId(), request);
     }
 }

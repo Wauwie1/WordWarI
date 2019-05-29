@@ -37,10 +37,9 @@ public class GameController {
 
         switch (message.getAction()) {
             case LETTER_TYPED:
-
-                String letter =  mapper.convertValue(message.getData(), String.class) ;
-                System.out.println(letter + " : " + id);
-                return null;
+                // int intId = Integer.parseInt(id);
+                Response response = server.letterTyped(message);
+                return response;
             default:
                 return null;
         }
