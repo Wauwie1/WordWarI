@@ -1,24 +1,11 @@
 package Requests;
 
 import Actions.ClientToServer;
+import lombok.Getter;
+import lombok.Setter;
 
 public class Request implements IRequest {
-    private ClientToServer action;
-    private Object data;
 
-    public ClientToServer getAction() {
-        return action;
-    }
-
-    public void setAction(ClientToServer action) {
-        this.action = action;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
+    @Getter @Setter private ClientToServer action;
+    @Getter @Setter private Object data;
 }

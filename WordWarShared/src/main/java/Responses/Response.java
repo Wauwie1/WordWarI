@@ -1,27 +1,14 @@
 package Responses;
 
 import Actions.ServerToClient;
+import lombok.Getter;
+import lombok.Setter;
 
 public class Response implements IResponse {
-    private ServerToClient action;
-    private Object data;
+    @Getter @Setter private ServerToClient action;
+    @Getter @Setter private Object data;
 
     public Response() {
-    }
-    public ServerToClient getAction() {
-        return action;
-    }
-
-    public void setAction(ServerToClient action) {
-        this.action = action;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
     }
 
     @Override

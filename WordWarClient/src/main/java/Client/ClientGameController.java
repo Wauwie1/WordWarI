@@ -11,43 +11,27 @@ import Responses.IResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.messaging.simp.stomp.StompSession;
 
 public class ClientGameController {
 
     // WS
     private ObjectMapper mapper = new ObjectMapper();
-    private StompSessionHandler stompSessionHandler;
-    public StompSession session;
+    @Setter private StompSessionHandler stompSessionHandler;
+    @Setter private StompSession session;
 
     // GUI Controllers TODO: Make seperate class?
-    private Stage stage;
-    private LoginController loginController;
-    private LobbyController lobbyController;
-    private GameGUIController gameGUIController;
+    @Setter private Stage stage;
+    @Setter private LoginController loginController;
+    @Setter private LobbyController lobbyController;
+    @Setter private GameGUIController gameGUIController;
 
     // Game variables
-    public User user;
-    public ClientLobby lobby;
+    @Getter @Setter private User user;
+    @Getter @Setter private ClientLobby lobby;
 
-
-    public void setStompSessionHandler(StompSessionHandler stompSessionHandler) {
-        this.stompSessionHandler = stompSessionHandler;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-    public void setLoginController(LoginController loginController) {
-        this.loginController = loginController;
-    }
-
-    public void setLobbyController(LobbyController lobbyController) {
-        this.lobbyController = lobbyController;
-    }
-
-    public void setGameGUIController(GameGUIController gameGUIController) { this.gameGUIController = gameGUIController; }
 
     public void handleMessage(IResponse message) {
         switch (message.getAction()){

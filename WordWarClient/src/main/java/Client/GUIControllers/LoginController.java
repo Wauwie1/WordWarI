@@ -19,7 +19,7 @@ import java.io.IOException;
 
 public class LoginController {
 
-    ILoginRepository loginRepository;
+    private ILoginRepository loginRepository;
     private ClientGameController gameController;
 
     @FXML public TextField Textfield_Username;
@@ -68,7 +68,7 @@ public class LoginController {
         // Pass user data to controller
         LobbyController controller = loader.getController();
         gameController.setLobbyController(controller);
-        gameController.user = user;
+        gameController.setUser(user);
         controller.setGameController(gameController);
 
         // Display lobby scene

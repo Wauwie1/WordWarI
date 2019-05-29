@@ -13,7 +13,7 @@ import java.util.Random;
 public class ServerLobby implements ILobby {
 
     private int id;
-    private ArrayList<Player> players = new ArrayList<>();
+    private List<Player> players = new ArrayList<>();
     private GameState state = GameState.NOT_STARTED;
 
     public ServerLobby() {
@@ -21,24 +21,6 @@ public class ServerLobby implements ILobby {
         id = rand.nextInt(500);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(int id) {
-
-    }
-
-    @Override
-    public ArrayList<Player> getPlayers() {
-        return players;
-    }
-
-    @Override
-    public void setPlayers(List<Player> players) {
-
-    }
 
     public void addPlayer(Player player) {
         players.add(player);
@@ -66,11 +48,34 @@ public class ServerLobby implements ILobby {
         }
     }
 
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    @Override
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    @Override
     public GameState getState() {
         return state;
     }
 
+    @Override
     public void setState(GameState state) {
         this.state = state;
     }
+
 }

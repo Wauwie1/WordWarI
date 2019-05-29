@@ -48,8 +48,8 @@ public class GameGUIController {
     }
 
     public void createGameField() {
-        ClientLobby lobby = gameController.lobby;
-        User user = gameController.user;
+        ClientLobby lobby = gameController.getLobby();
+        User user = gameController.getUser();
         List<Player> players = lobby.getPlayers();
 
         for (Player player: players) {

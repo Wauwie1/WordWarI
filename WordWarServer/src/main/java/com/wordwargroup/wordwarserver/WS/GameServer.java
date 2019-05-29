@@ -62,6 +62,7 @@ public class GameServer {
 
     private Player createPlayer(User user) {
         Player player = new Player();
+
         player.setUser(user);
         player.setLives(100);
         giveNewWord(player);

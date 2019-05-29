@@ -21,7 +21,7 @@ public class StompSessionHandler extends StompSessionHandlerAdapter {
     @Override
     public void afterConnected(StompSession session, StompHeaders connectedHeaders) {
         System.out.println("New session established : " + session.getSessionId());
-        this.gameController.session = session;
+        this.gameController.setSession(session);
         this.gameController.searchGame();
 
     }

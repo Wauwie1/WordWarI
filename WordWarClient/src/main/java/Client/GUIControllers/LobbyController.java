@@ -42,7 +42,7 @@ public class LobbyController {
     }
 
     public void setUser(){
-        this.user = gameController.user;
+        this.user = gameController.getUser();
         Label_Welcome.setText("Welcome back " + user.getUsername() + ". Ready to play?");
         System.out.println(this.user);
     }
