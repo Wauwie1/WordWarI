@@ -3,31 +3,40 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #5F5A6D;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.GUIControllers.GameGUIController">
    <children>
-      <Label fx:id="Label_Opponent_Word" alignment="CENTER" layoutX="282.0" layoutY="121.0" opacity="0.51" prefHeight="52.0" prefWidth="337.0" text="TESTJE" textFill="#808080">
-         <font>
-            <Font name="Segoe UI" size="42.0" />
-         </font>
-      </Label>
-      <Label fx:id="Label_Opponent_Word_Typed" alignment="CENTER" layoutX="265.0" layoutY="121.0" prefHeight="52.0" prefWidth="337.0" text="TEST" textFill="#bfbfbf">
-         <font>
-            <Font name="Segoe UI" size="42.0" />
-         </font>
-      </Label>
+      <StackPane alignment="CENTER_LEFT" layoutX="294.0" layoutY="93.0" prefHeight="66.0" prefWidth="400.0">
+         <children>
+            <Label fx:id="Label_Opponent_Word" opacity="0.51" prefHeight="52.0" prefWidth="400.0" text="TESTJE" textFill="#808080">
+               <font>
+                  <Font name="Segoe UI" size="42.0" />
+               </font>
+            </Label>
+            <Label fx:id="Label_Opponent_Word_Typed" prefHeight="52.0" prefWidth="401.0" text="TEST" textFill="#bfbfbf">
+               <font>
+                  <Font name="Segoe UI" size="42.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
       <Separator layoutX="218.0" layoutY="234.0" prefWidth="466.0" />
-      <Label fx:id="Label_Word" alignment="CENTER" layoutX="282.0" layoutY="313.0" opacity="0.51" prefHeight="52.0" prefWidth="337.0" text="TESTJE" textFill="#808080">
-         <font>
-            <Font name="Segoe UI" size="42.0" />
-         </font>
-      </Label>
-      <Label fx:id="Label_Word_Typed" alignment="CENTER" layoutX="253.0" layoutY="313.0" prefHeight="52.0" prefWidth="337.0" text="TES" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI" size="42.0" />
-         </font>
-      </Label>
+      <StackPane fx:id="Stackpane_Player" layoutX="298.0" layoutY="298.0" prefHeight="66.0" prefWidth="400.0">
+         <children>
+            <Label fx:id="Label_Word" opacity="0.51" prefHeight="52.0" prefWidth="400.0" text="TESTJE" textFill="#808080">
+               <font>
+                  <Font name="Segoe UI" size="42.0" />
+               </font>
+            </Label>
+            <Label fx:id="Label_Word_Typed" prefHeight="52.0" prefWidth="400.0" text="TEST" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="42.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
       <Label fx:id="Label_Name_Player" layoutX="213.0" layoutY="250.0" text="Destroyer32" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="15.0" />
