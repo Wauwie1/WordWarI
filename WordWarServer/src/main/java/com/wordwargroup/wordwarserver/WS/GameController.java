@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 public class GameController {
     private final GameServer server = new GameServer();
     private final ObjectMapper mapper = new ObjectMapper();
+
     @MessageMapping("/find")
     @SendTo("/topic/findmatch")
     public Response findmatch(Request message) throws Exception {

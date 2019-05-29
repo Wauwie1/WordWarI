@@ -34,4 +34,9 @@ public class MockDatabaseRepository implements IDatabase {
         System.out.println("Login failed");
         return null;
     }
+
+    @Override
+    public String getWord(int id) {
+        return null;
+    }
 }

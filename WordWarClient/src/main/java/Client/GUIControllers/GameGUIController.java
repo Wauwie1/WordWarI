@@ -64,6 +64,18 @@ public class GameGUIController {
 
         Label_Name_Player.setText(player.getUser().getUsername());
         Label_Name_Opponent.setText(opponent.getUser().getUsername());
+        setNewWordPlayer();
+        setNewWordOpponent();
+    }
+
+    private void setNewWordPlayer() {
+        Label_Word.setText(player.getCurrentWord());
+        Label_Word_Typed.setText("");
+    }
+
+    private void setNewWordOpponent() {
+        Label_Opponent_Word.setText(opponent.getCurrentWord());
+        Label_Opponent_Word_Typed.setText("");
     }
 
 

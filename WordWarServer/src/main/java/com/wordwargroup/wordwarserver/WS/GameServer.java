@@ -4,11 +4,15 @@ import Actions.ServerToClient;
 import Models.Player;
 import Models.User;
 import Responses.Response;
+import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
+import com.wordwargroup.wordwarserver.REST.Repositories.MySQLRepository;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameServer {
     private ArrayList<ServerLobby> lobbies = new ArrayList<>();
+    private static final IDatabase database = new MySQLRepository();
 
     public GameServer() {
         lobbies.add(new ServerLobby());
@@ -18,6 +22,8 @@ public class GameServer {
         Player player = new Player();
         player.setUser(user);
         player.setLives(100);
+        giveNewWord(player);
+
         ServerLobby lobby = lobbies.get(0);
         lobby.addPlayer(player);
 
@@ -54,5 +60,13 @@ public class GameServer {
                 }
             }
         return 0;
+    }
+
+    private void giveNewWord(Player player) {
+        Random rand = new Random();
+        int randomIndex = rand.nextInt(1000);
+        String word = database.getWord(randomIndex);
+        System.out.println(word);
+        player.giveNewWord(word);
     }
 }

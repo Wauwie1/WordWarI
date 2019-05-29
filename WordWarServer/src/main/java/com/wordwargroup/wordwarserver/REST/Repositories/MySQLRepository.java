@@ -13,7 +13,8 @@ public class MySQLRepository implements IDatabase {
     @Value("${db.pass}")
     private String password;
 
-    String loginQuery = "{CALL Login(?, ?, ?, ?)}";
+    private String loginQuery = "{CALL Login(?, ?, ?, ?)}";
+    private String wordQuery = "{CALL GetWord(?, ?)}";
 
     @Override
     public User login(String username, String password) {
@@ -46,6 +47,30 @@ public class MySQLRepository implements IDatabase {
         } catch (Exception e) {
             e.printStackTrace();
             return user;
+        }
+    }
+
+    @Override
+    public String getWord(int id) {
+        String word = null;
+        try ( Connection connect = DriverManager
+                .getConnection(connectionUrl, "dbi402348", "Ifi4god#");
+              CallableStatement statement = connect.prepareCall(wordQuery)) {
+
+            // Set IN and OUT parameters
+            statement.setInt(1, id);
+            statement.registerOutParameter(2, Types.NVARCHAR);
+
+            statement.execute();
+
+            // Get returned user
+            word = statement.getString(2);
+
+            return word;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return word;
         }
     }
 }

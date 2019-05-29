@@ -34,4 +34,20 @@ public class Player {
     public void setLives(int lives) {
         this.lives = lives;
     }
+
+    public String getCurrentWord() {
+        return currentWord;
+    }
+
+    public void setCurrentWord(String currentWord) {
+        this.currentWord = currentWord;
+    }
+
+    public char[] getTypedChars() {
+        return typedChars;
+    }
+
+    public void setTypedChars(char[] typedChars) {
+        this.typedChars = typedChars;
+    }
 }
