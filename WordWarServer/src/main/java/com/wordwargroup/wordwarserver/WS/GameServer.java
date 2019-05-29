@@ -19,10 +19,7 @@ public class GameServer {
     }
 
     public Response findMockMatch(User user) {
-        Player player = new Player();
-        player.setUser(user);
-        player.setLives(100);
-        giveNewWord(player);
+        Player player = createPlayer(user);
 
         ServerLobby lobby = lobbies.get(0);
         lobby.addPlayer(player);
@@ -36,6 +33,7 @@ public class GameServer {
             response.setAction(ServerToClient.SEARCHING);
         }
         response.setData(lobby);
+
         return response;
     }
 
@@ -60,6 +58,14 @@ public class GameServer {
                 }
             }
         return 0;
+    }
+
+    private Player createPlayer(User user) {
+        Player player = new Player();
+        player.setUser(user);
+        player.setLives(100);
+        giveNewWord(player);
+        return player;
     }
 
     private void giveNewWord(Player player) {

@@ -4,7 +4,6 @@ import Actions.ClientToServer;
 import Client.GUIControllers.GameGUIController;
 import Client.GUIControllers.LobbyController;
 import Client.GUIControllers.LoginController;
-import Models.Player;
 import Models.User;
 import Requests.IRequest;
 import Requests.Request;
@@ -14,13 +13,11 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.springframework.messaging.simp.stomp.StompSession;
 
-import java.util.ArrayList;
-
 public class ClientGameController {
 
     // WS
     private ObjectMapper mapper = new ObjectMapper();
-    private MyStompSessionHandler stompSessionHandler;
+    private StompSessionHandler stompSessionHandler;
     public StompSession session;
 
     // GUI Controllers TODO: Make seperate class?
@@ -34,7 +31,7 @@ public class ClientGameController {
     public ClientLobby lobby;
 
 
-    public void setStompSessionHandler(MyStompSessionHandler stompSessionHandler) {
+    public void setStompSessionHandler(StompSessionHandler stompSessionHandler) {
         this.stompSessionHandler = stompSessionHandler;
     }
 

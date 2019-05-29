@@ -9,7 +9,7 @@ import org.springframework.messaging.simp.stomp.StompSessionHandlerAdapter;
 
 import java.lang.reflect.Type;
 
-public class MyStompSessionHandler extends StompSessionHandlerAdapter {
+public class StompSessionHandler extends StompSessionHandlerAdapter {
 
     private ClientGameController gameController;
 

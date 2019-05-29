@@ -1,7 +1,7 @@
 package Client.GUIControllers;
 
 import Client.ClientGameController;
-import Client.MyStompSessionHandler;
+import Client.StompSessionHandler;
 import Models.User;
 import javafx.animation.Animation;
 import javafx.animation.ScaleTransition;
@@ -16,7 +16,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
-import org.springframework.messaging.simp.stomp.StompSessionHandler;
 import org.springframework.web.socket.client.WebSocketClient;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
@@ -55,8 +54,8 @@ public class LobbyController {
         WebSocketStompClient stompClient = new WebSocketStompClient(client);
         stompClient.setMessageConverter(new MappingJackson2MessageConverter());
 
-        StompSessionHandler sessionHandler = new MyStompSessionHandler();
-        ((MyStompSessionHandler) sessionHandler).setGameController(gameController);
+        org.springframework.messaging.simp.stomp.StompSessionHandler sessionHandler = new StompSessionHandler();
+        ((StompSessionHandler) sessionHandler).setGameController(gameController);
         stompClient.connect(URL, sessionHandler);
     }
 
