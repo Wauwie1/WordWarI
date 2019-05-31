@@ -63,7 +63,7 @@ public class MySQLRepository implements IDatabase {
 
             statement.execute();
 
-            // Get returned user
+            // Get returned word
             word = statement.getString(2);
 
             return word;

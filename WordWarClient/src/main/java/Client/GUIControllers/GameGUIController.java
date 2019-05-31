@@ -79,14 +79,28 @@ public class GameGUIController {
     }
 
     private void setNewWordPlayer() {
-        Label_Word.setText(player.getCurrentWord());
-        Label_Word_Typed.setText("");
+        Platform.runLater(() -> {
+            Label_Word.setText(player.getCurrentWord());
+            Label_Word_Typed.setText("");
+        });
     }
 
     private void setNewWordOpponent() {
-        Label_Opponent_Word.setText(opponent.getCurrentWord());
-        Label_Opponent_Word_Typed.setText("");
+        Platform.runLater(() -> {
+            Label_Opponent_Word.setText(opponent.getCurrentWord());
+            Label_Opponent_Word_Typed.setText("");
+        });
     }
 
 
+    public void newWord(Player player) {
+        int playerId = player.getUser().getId();
+        if(playerId == this.player.getUser().getId()) {
+            this.player = player;
+            setNewWordPlayer();
+        }else if(playerId == opponent.getUser().getId()) {
+            this.opponent = player;
+            setNewWordOpponent();
+        }
+    }
 }

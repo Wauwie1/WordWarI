@@ -21,6 +21,7 @@ public class Player {
 
     public void giveNewWord(String word) {
         currentWord = word;
+        typedChars = "";
     }
 
     public void typeCharacter(char typedCharacter) {
@@ -30,6 +31,10 @@ public class Player {
         if(character == typedCharacter) {
             typedChars += typedCharacter;
         }
+    }
+
+    public boolean completedWord() {
+        return currentWord.compareTo(typedChars) == 0;
     }
 
 }
