@@ -5,6 +5,7 @@ import Models.LetterTyped;
 import Models.Player;
 import Models.User;
 import Requests.Request;
+import Responses.EndGameResponse;
 import Responses.Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
@@ -12,7 +13,6 @@ import com.wordwargroup.wordwarserver.REST.Repositories.MySQLRepository;
 
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class GameServer {
     private final ObjectMapper mapper = new ObjectMapper();
@@ -79,7 +79,17 @@ public class GameServer {
         if(messagePlayer.completedWord()) {
             giveNewWord(messagePlayer, serverLobby);
             messagePlayerOpponent.removeLife(10);
-            response.setAction(ServerToClient.NEW_WORD);
+            if(messagePlayerOpponent.getLives() <= 0) {
+                EndGameResponse endGameResponse = new EndGameResponse();
+                endGameResponse.setLoser(messagePlayerOpponent);
+                endGameResponse.setWinner(messagePlayer);
+                response.setAction(ServerToClient.GAME_OVER);
+                response.setData(endGameResponse);
+                return response;
+            } else {
+                response.setAction(ServerToClient.NEW_WORD);
+            }
+
         } else {
             response.setAction(ServerToClient.LETTER_TYPED);
         }

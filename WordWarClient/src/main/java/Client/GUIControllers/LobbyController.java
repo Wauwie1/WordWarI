@@ -67,7 +67,8 @@ public class LobbyController {
 
         // Pass user data to controller
         GameGUIController controller = loader.getController();
-        controller.setKeyListener(gameScene);
+        controller.setScene(gameScene);
+        controller.setKeyListener();
         controller.setGameController(gameController);
         gameController.setGameGUIController(controller);
         controller.createGameField();

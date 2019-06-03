@@ -9,12 +9,19 @@ import Models.Player;
 import Models.User;
 import Requests.IRequest;
 import Requests.Request;
+import Responses.EndGameResponse;
 import Responses.IResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.messaging.simp.stomp.StompSession;
+
+import java.io.IOException;
 
 public class ClientGameController {
 
@@ -58,10 +65,21 @@ public class ClientGameController {
                 Player playerOpponentNewWord = messageNewWord.getPlayerOpponent();
                 gameGUIController.newWord(playerNewWord, playerOpponentNewWord);
                 return;
+            case GAME_OVER:
+                EndGameResponse endGameResponse = mapper.convertValue(message.getData(), EndGameResponse.class);
+                Player winner = endGameResponse.getWinner();
+                Player loser = endGameResponse.getLoser();
+                endGame(winner, loser);
+                return;
             default:
                 System.out.println("Received unknown action.");
                 return;
         }
+    }
+
+    private void endGame(Player winner, Player loser) {
+        session.disconnect();
+        gameGUIController.endGame(winner, loser);
     }
 
     private void gameFound() {
@@ -71,6 +89,22 @@ public class ClientGameController {
         }catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void goToLobby() throws IOException {
+        // Create lobby scene
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/lobby.fxml"));
+        Parent gameParent = loader.load();
+        Scene gameScene = new Scene(gameParent, 900, 500);
+
+        LobbyController controller = loader.getController();
+        controller.setGameController(this);
+
+        // Display lobby scene
+        Platform.runLater(() -> {
+            stage.setScene(gameScene);
+            stage.show();
+        });
     }
 
     public void searchGame() {

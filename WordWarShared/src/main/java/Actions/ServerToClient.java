@@ -4,5 +4,6 @@ public enum ServerToClient {
     SEARCHING,
     GAME_FOUND,
     LETTER_TYPED,
-    NEW_WORD
+    NEW_WORD,
+    GAME_OVER
 }

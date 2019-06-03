@@ -5,10 +5,15 @@ import Client.ClientLobby;
 import Models.Player;
 import Models.User;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.util.List;
 
 public class GameGUIController {
@@ -21,6 +26,10 @@ public class GameGUIController {
     @FXML public Label Label_Name_Opponent;
     @FXML public Label Label_Lives_Player;
     @FXML public Label Label_Lives_Opponent;
+    @FXML public AnchorPane Pane_End;
+    @FXML public Button Button_Lobby;
+    @FXML public Label Label_End;
+    @FXML public ImageView Black_Fade;
 
     private ClientGameController gameController;
     private Scene scene;
@@ -40,8 +49,11 @@ public class GameGUIController {
 
     }
 
-    public void setKeyListener(Scene scene) {
+    public void setScene(Scene scene) {
         this.scene = scene;
+    }
+
+    public void setKeyListener() {
         this.scene.setOnKeyPressed(e -> {
             System.out.println(e.getText());
             gameController.sendKeyPress(e.getText(), player);
@@ -135,5 +147,25 @@ public class GameGUIController {
             String lives = String.valueOf(player.getLives());
             Label_Lives_Player.setText(lives);
         });
+    }
+
+    public void endGame(Player winner, Player loser) {
+        Platform.runLater(() -> {
+            Black_Fade.setVisible(true);
+            Pane_End.setVisible(true);
+            if(player.getUser().getId() == winner.getUser().getId()) {
+                Label_End.setText("YOU'VE WON!");
+            }else if(opponent.getUser().getId() == winner.getUser().getId()) {
+                Label_End.setText("You've lost...");
+            }
+        });
+    }
+
+    public void Button_Lobby_Click(ActionEvent actionEvent) {
+        try {
+            gameController.goToLobby();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
