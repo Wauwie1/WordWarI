@@ -56,7 +56,8 @@ public class ClientGameController {
             case NEW_WORD:
                 LetterTyped messageNewWord = mapper.convertValue(message.getData(), LetterTyped.class);
                 Player playerNewWord = messageNewWord.getPlayer();
-                gameGUIController.newWord(playerNewWord);
+                Player playerOpponentNewWord = messageNewWord.getPlayerOpponent();
+                gameGUIController.newWord(playerNewWord, playerOpponentNewWord);
                 return;
             default:
                 System.out.println("Received unknown action.");

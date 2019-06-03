@@ -53,6 +53,7 @@ public class GameServer {
         char letter = letterTypedMessage.getLetter().charAt(0);
         int playerId = letterTypedMessage.getPlayer().getUser().getId();
         Player messagePlayer = null;
+        Player messagePlayerOpponent = null;
 
 
         ServerLobby serverLobby = null;
@@ -65,6 +66,8 @@ public class GameServer {
         for (Player player: serverLobby.getPlayers()) {
             if(player.getUser().getId() == playerId) {
                 messagePlayer = player;
+            }else {
+                messagePlayerOpponent = player;
             }
         }
 
@@ -73,6 +76,7 @@ public class GameServer {
         messagePlayer.typeCharacter(letter);
         if(messagePlayer.completedWord()) {
             giveNewWord(messagePlayer);
+            messagePlayerOpponent.removeLife(10);
             response.setAction(ServerToClient.NEW_WORD);
         } else {
             response.setAction(ServerToClient.LETTER_TYPED);
@@ -80,6 +84,7 @@ public class GameServer {
 
 
         letterTypedMessage.setPlayer(messagePlayer);
+        letterTypedMessage.setPlayerOpponent(messagePlayerOpponent);
 
 
 

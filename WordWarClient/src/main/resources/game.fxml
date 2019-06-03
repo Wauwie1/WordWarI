@@ -47,5 +47,15 @@
             <Font name="Segoe UI" size="15.0" />
          </font>
       </Label>
+      <Label fx:id="Label_Lives_Opponent" layoutX="117.0" layoutY="212.0" text="35" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Label_Lives_Player" layoutX="117.0" layoutY="250.0" text="76" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

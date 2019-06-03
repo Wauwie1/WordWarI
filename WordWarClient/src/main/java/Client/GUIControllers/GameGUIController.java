@@ -19,6 +19,8 @@ public class GameGUIController {
     @FXML public Label Label_Opponent_Word_Typed;
     @FXML public Label Label_Name_Player;
     @FXML public Label Label_Name_Opponent;
+    @FXML public Label Label_Lives_Player;
+    @FXML public Label Label_Lives_Opponent;
 
     private ClientGameController gameController;
     private Scene scene;
@@ -63,6 +65,18 @@ public class GameGUIController {
         Label_Name_Opponent.setText(opponent.getUser().getUsername());
         setNewWordPlayer();
         setNewWordOpponent();
+        setLivesPlayer();
+        setLivesOpponent();
+    }
+
+    private void setLivesOpponent() {
+        String lives = String.valueOf(player.getLives());
+        Label_Lives_Player.setText(lives);
+    }
+
+    private void setLivesPlayer() {
+        String lives = String.valueOf(opponent.getLives());
+        Label_Lives_Opponent.setText(lives);
     }
 
     public void charTyped(Player player) {
@@ -93,14 +107,33 @@ public class GameGUIController {
     }
 
 
-    public void newWord(Player player) {
+    public void newWord(Player player, Player playerOpponent) {
         int playerId = player.getUser().getId();
         if(playerId == this.player.getUser().getId()) {
             this.player = player;
+            this.opponent = playerOpponent;
             setNewWordPlayer();
+
         }else if(playerId == opponent.getUser().getId()) {
             this.opponent = player;
+            this.player = playerOpponent;
             setNewWordOpponent();
         }
+        updateLivesPlayer();
+        updateLivesOpponent();
+    }
+
+    private void updateLivesOpponent() {
+        Platform.runLater(() -> {
+            String lives = String.valueOf(opponent.getLives());
+            Label_Lives_Opponent.setText(lives);
+        });
+    }
+
+    private void updateLivesPlayer() {
+        Platform.runLater(() -> {
+            String lives = String.valueOf(player.getLives());
+            Label_Lives_Player.setText(lives);
+        });
     }
 }

@@ -8,9 +8,11 @@ import lombok.Setter;
 public class LetterTyped {
     @Getter @Setter private String letter;
     @Getter @Setter private Player player;
+    @Getter @Setter private Player playerOpponent;
     @Getter @Setter private String lobbyId;
 
     public LetterTyped() {
 
     }
+
 }
