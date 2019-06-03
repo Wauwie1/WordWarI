@@ -3,6 +3,7 @@ package com.wordwargroup.wordwarserver.REST.Repositories;
 import Models.User;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MockDatabaseRepository implements IDatabase {
@@ -37,6 +38,11 @@ public class MockDatabaseRepository implements IDatabase {
 
     @Override
     public String getWord(int id) {
+        return null;
+    }
+
+    @Override
+    public List<String> getWords() {
         return null;
     }
 }

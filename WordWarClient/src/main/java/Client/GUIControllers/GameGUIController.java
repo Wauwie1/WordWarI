@@ -43,8 +43,8 @@ public class GameGUIController {
     public void setKeyListener(Scene scene) {
         this.scene = scene;
         this.scene.setOnKeyPressed(e -> {
-            System.out.println(e.getCode());
-            gameController.sendKeyPress(e.getCode(), player);
+            System.out.println(e.getText());
+            gameController.sendKeyPress(e.getText(), player);
         });
     }
 

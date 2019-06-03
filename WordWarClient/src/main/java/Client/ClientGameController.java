@@ -11,7 +11,6 @@ import Requests.IRequest;
 import Requests.Request;
 import Responses.IResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
@@ -89,8 +88,8 @@ public class ClientGameController {
         System.out.println("Message sent to websocket server");
     }
 
-    public void sendKeyPress(KeyCode code, Player player) {
-        String letter = code.toString();
+    public void sendKeyPress(String letter, Player player) {
+        letter = letter.toUpperCase();
         IRequest request = new Request();
         request.setAction(ClientToServer.LETTER_TYPED);
 

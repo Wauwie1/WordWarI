@@ -4,21 +4,24 @@ import Interfaces.ILobby;
 import Models.GameState;
 import Models.Player;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ServerLobby implements ILobby {
 
     private int id;
     private List<Player> players = new ArrayList<>();
+    private List<String> words;
+    private IDatabase database;
     private GameState state = GameState.NOT_STARTED;
 
-    public ServerLobby() {
-        Random rand = new Random();
-        id = rand.nextInt(500);
+    public ServerLobby(IDatabase database) {
+        this.database = database;
+        words = database.getWords();
     }
 
 
@@ -31,6 +34,7 @@ public class ServerLobby implements ILobby {
 
     private void startGame() {
         state = GameState.IN_PROGRESS;
+
         System.out.println("Game started.");
     }
 
@@ -47,6 +51,21 @@ public class ServerLobby implements ILobby {
             return false;
         }
     }
+
+    public String getNextWord(String currentWord) {
+        for (int i = 0; i < words.size(); i++) {
+            if(words.get(i).compareTo(currentWord) == 0) {
+                return words.get(i + 1);
+            }
+        }
+
+        return null;
+    }
+
+    public String getInitialWord() {
+        return words.get(0);
+    }
+
 
     @Override
     public int getId() {
@@ -77,5 +96,6 @@ public class ServerLobby implements ILobby {
     public void setState(GameState state) {
         this.state = state;
     }
+
 
 }

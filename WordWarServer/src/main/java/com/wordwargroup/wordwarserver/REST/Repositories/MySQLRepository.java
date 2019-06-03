@@ -4,6 +4,8 @@ import Models.User;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySQLRepository implements IDatabase {
 
@@ -15,6 +17,13 @@ public class MySQLRepository implements IDatabase {
 
     private String loginQuery = "{CALL Login(?, ?, ?, ?)}";
     private String wordQuery = "{CALL GetWord(?, ?)}";
+    private String randomWordQuery =
+            " SELECT\n" +
+            " Word\n" +
+            " FROM\n" +
+            " words\n" +
+            " ORDER BY RAND()\n" +
+            " LIMIT 50;";
 
     @Override
     public User login(String username, String password) {
@@ -72,5 +81,29 @@ public class MySQLRepository implements IDatabase {
             e.printStackTrace();
             return word;
         }
+    }
+
+    @Override
+    public List<String> getWords() {
+        List<String> words = new ArrayList<>();
+
+        try ( Connection connect = DriverManager
+                .getConnection(connectionUrl, "dbi402348", "Ifi4god#");
+        Statement statement = connect.createStatement();
+        ResultSet resultSet = statement.executeQuery(randomWordQuery)) {
+
+            while (resultSet.next()) {
+                String word = resultSet.getString(1).toUpperCase();
+                words.add(word);
+            }
+
+            return words;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return words;
+        }
+
+
     }
 }

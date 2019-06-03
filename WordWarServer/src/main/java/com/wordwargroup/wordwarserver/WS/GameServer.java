@@ -21,14 +21,16 @@ public class GameServer {
 
 
     public GameServer() {
-        lobbies.add(new ServerLobby());
+        lobbies.add(new ServerLobby(database));
     }
 
     public Response findMockMatch(User user) {
         Player player = createPlayer(user);
 
+
         ServerLobby lobby = lobbies.get(0);
         lobby.addPlayer(player);
+        player.giveNewWord(lobby.getInitialWord());
 
         Response response = new Response();
         if(lobby.isFull()){
@@ -75,7 +77,7 @@ public class GameServer {
 
         messagePlayer.typeCharacter(letter);
         if(messagePlayer.completedWord()) {
-            giveNewWord(messagePlayer);
+            giveNewWord(messagePlayer, serverLobby);
             messagePlayerOpponent.removeLife(10);
             response.setAction(ServerToClient.NEW_WORD);
         } else {
@@ -98,7 +100,7 @@ public class GameServer {
         boolean isPlaced = false;
 
         if(lobbies.size() == 0){
-            ServerLobby lobby = new ServerLobby();
+            ServerLobby lobby = new ServerLobby(database);
             lobby.addPlayer(player);
             isPlaced = true;
             return lobby.getId();
@@ -121,16 +123,14 @@ public class GameServer {
 
         player.setUser(user);
         player.setLives(100);
-        giveNewWord(player);
+
         return player;
     }
 
-    private void giveNewWord(Player player) {
-        Random rand = new Random();
-        int randomIndex = rand.nextInt((15 - 1) + 1) + 1;
+    private void giveNewWord(Player player, ServerLobby lobby) {
         String word = null;
         try {
-            word = database.getWord(randomIndex);
+            word = lobby.getNextWord(player.getCurrentWord());
 
         }catch (NullPointerException exception) {
             exception.printStackTrace();
