@@ -5,6 +5,8 @@ import Models.GameState;
 import Models.Player;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +16,11 @@ import java.util.Random;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ServerLobby implements ILobby {
 
-    private int id;
-    private List<Player> players = new ArrayList<>();
+    @Getter @Setter private int id;
+    @Getter @Setter private List<Player> players = new ArrayList<>();
     private List<String> words;
     private IDatabase database;
-    private GameState state = GameState.NOT_STARTED;
+    @Getter @Setter private GameState state = GameState.NOT_STARTED;
 
     public ServerLobby(IDatabase database) {
         Random rand = new Random();
@@ -68,37 +70,5 @@ public class ServerLobby implements ILobby {
     public String getInitialWord() {
         return words.get(0);
     }
-
-
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public List<Player> getPlayers() {
-        return players;
-    }
-
-    @Override
-    public void setPlayers(List<Player> players) {
-        this.players = players;
-    }
-
-    @Override
-    public GameState getState() {
-        return state;
-    }
-
-    @Override
-    public void setState(GameState state) {
-        this.state = state;
-    }
-
 
 }

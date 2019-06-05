@@ -28,7 +28,6 @@ public class GameController {
         }
 
         // Thread.sleep(1000); // simulated delay
-
     }
 
     @MessageMapping("/play/{id}")
@@ -45,6 +44,5 @@ public class GameController {
         }
 
         // Thread.sleep(1000); // simulated delay
-
     }
 }
