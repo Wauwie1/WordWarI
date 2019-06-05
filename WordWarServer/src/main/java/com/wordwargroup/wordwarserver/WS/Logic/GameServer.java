@@ -85,6 +85,7 @@ public class GameServer {
                 endGameResponse.setWinner(messagePlayer);
                 response.setAction(ServerToClient.GAME_OVER);
                 response.setData(endGameResponse);
+                serverLobby.reset();
                 return response;
             } else {
                 response.setAction(ServerToClient.NEW_WORD);

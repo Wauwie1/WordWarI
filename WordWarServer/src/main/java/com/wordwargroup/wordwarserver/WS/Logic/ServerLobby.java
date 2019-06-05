@@ -23,10 +23,8 @@ public class ServerLobby implements ILobby {
     @Getter @Setter private GameState state = GameState.NOT_STARTED;
 
     public ServerLobby(IDatabase database) {
-        Random rand = new Random();
-        this.id = rand.nextInt(999);
         this.database = database;
-        words = database.getWords();
+        reset();
     }
 
 
@@ -69,6 +67,17 @@ public class ServerLobby implements ILobby {
 
     public String getInitialWord() {
         return words.get(0);
+    }
+
+    private void setRandomId() {
+        Random rand = new Random();
+        this.id = rand.nextInt(999);
+    }
+
+    public void reset() {
+        setRandomId();
+        words = database.getWords();
+        players = new ArrayList<>();
     }
 
 }
