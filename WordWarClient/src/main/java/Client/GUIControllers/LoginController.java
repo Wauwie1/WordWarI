@@ -1,23 +1,19 @@
 package Client.GUIControllers;
 
 import Client.ClientGameController;
+import Client.Interfaces.IGUIController;
 import Client.Interfaces.ILoginRepository;
 import Client.Repositories.LoginRepository;
 import Models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class LoginController {
+public class LoginController implements IGUIController {
 
     private ILoginRepository loginRepository;
     private ClientGameController gameController;
@@ -25,54 +21,42 @@ public class LoginController {
     @FXML public TextField Textfield_Username;
     @FXML public PasswordField Textfield_Password;
     @FXML public Label Label_Error;
+    @FXML public AnchorPane AnchorPane_Main;
 
     public LoginController() {
         loginRepository = new LoginRepository();
         gameController = new ClientGameController();
+
+    }
+
+    @Override
+    public void initialize() {
+
     }
 
     public void Button_Login_Clicked(ActionEvent actionEvent) throws Exception {
-
-        Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        gameController.setStage(stage);
-        gameController.setLoginController(this);
-
         try {
-            login(stage);
+            Stage stage = (Stage) AnchorPane_Main.getScene().getWindow();
+            gameController.setStage(stage);
+            login();
         }catch (Exception exception) {
             System.out.println("Could not connect to server.");
             Label_Error.setText("Could not connect to server");
         }
     }
 
-    private void login(Stage stage) throws IOException {
+    private void login() {
         String username = Textfield_Username.getText();
         String password = Textfield_Password.getText();
 
         User user = loginRepository.login(username, password);
 
         if(user != null) {
-            switchToLobby(stage, user);
+            gameController.login(user);
         }else {
             Label_Error.setText("Incorrect password/username");
         }
     }
 
-    private void switchToLobby(Stage stage, User user) throws IOException
-    {
-        // Create lobby scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/lobby.fxml"));
-        Parent lobbyParent = loader.load();
-        Scene lobbyScene = new Scene(lobbyParent, 900, 500);
 
-        // Pass user data to controller
-        LobbyController controller = loader.getController();
-        gameController.setLobbyController(controller);
-        gameController.setUser(user);
-        controller.setGameController(gameController);
-
-        // Display lobby scene
-        stage.setScene(lobbyScene);
-        stage.show();
-    }
 }

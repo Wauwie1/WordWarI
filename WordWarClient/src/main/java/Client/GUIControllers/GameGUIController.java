@@ -2,6 +2,7 @@ package Client.GUIControllers;
 
 import Client.ClientGameController;
 import Client.ClientLobby;
+import Client.Interfaces.IGUIController;
 import Models.Player;
 import Models.User;
 import javafx.application.Platform;
@@ -12,11 +13,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import lombok.Setter;
 
-import java.io.IOException;
 import java.util.List;
 
-public class GameGUIController {
+public class GameGUIController implements IGUIController {
 
     @FXML public Label Label_Word;
     @FXML public Label Label_Word_Typed;
@@ -31,22 +32,13 @@ public class GameGUIController {
     @FXML public Label Label_End;
     @FXML public ImageView Black_Fade;
 
-    private ClientGameController gameController;
+    @Setter private ClientGameController gameController;
     private Scene scene;
 
     private Player player;
     private Player opponent;
 
-    public ClientGameController getGameController() {
-        return gameController;
-    }
-
-    public void setGameController(ClientGameController gameController) {
-        this.gameController = gameController;
-    }
-
     public void initialize(){
-
     }
 
     public void setScene(Scene scene) {
@@ -55,7 +47,6 @@ public class GameGUIController {
 
     public void setKeyListener() {
         this.scene.setOnKeyPressed(e -> {
-            System.out.println(e.getText());
             gameController.sendKeyPress(e.getText(), player);
         });
     }
@@ -94,10 +85,8 @@ public class GameGUIController {
     public void charTyped(Player player) {
         Platform.runLater(() -> {
             if(this.player.getUser().getId() == player.getUser().getId()) {
-//                this.player = player;
                 Label_Word_Typed.setText(player.getTypedChars());
             }else if(opponent.getUser().getId() == player.getUser().getId()) {
-//                this.opponent = player;
                 Label_Opponent_Word_Typed.setText(player.getTypedChars());
             }
         });
@@ -162,10 +151,6 @@ public class GameGUIController {
     }
 
     public void Button_Lobby_Click(ActionEvent actionEvent) {
-        try {
             gameController.goToLobby();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

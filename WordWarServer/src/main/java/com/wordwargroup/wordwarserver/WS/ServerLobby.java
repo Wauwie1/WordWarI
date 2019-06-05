@@ -8,6 +8,7 @@ import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -20,6 +21,8 @@ public class ServerLobby implements ILobby {
     private GameState state = GameState.NOT_STARTED;
 
     public ServerLobby(IDatabase database) {
+        Random rand = new Random();
+        this.id = rand.nextInt(999);
         this.database = database;
         words = database.getWords();
     }

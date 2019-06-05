@@ -1,9 +1,7 @@
 package Client;
 
 import Actions.ClientToServer;
-import Client.GUIControllers.GameGUIController;
 import Client.GUIControllers.LobbyController;
-import Client.GUIControllers.LoginController;
 import Models.LetterTyped;
 import Models.Player;
 import Models.User;
@@ -12,14 +10,14 @@ import Requests.Request;
 import Responses.EndGameResponse;
 import Responses.IResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.simp.stomp.StompSession;
+import org.springframework.web.socket.client.WebSocketClient;
+import org.springframework.web.socket.client.standard.StandardWebSocketClient;
+import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 import java.io.IOException;
 
@@ -27,19 +25,20 @@ public class ClientGameController {
 
     // WS
     private ObjectMapper mapper = new ObjectMapper();
-    @Setter private StompSessionHandler stompSessionHandler;
+    @Setter @Getter private StompSessionHandler stompSessionHandler;
     @Setter private StompSession session;
 
-    // GUI Controllers TODO: Make seperate class?
-    @Setter private Stage stage;
-    @Setter private LoginController loginController;
-    @Setter private LobbyController lobbyController;
-    @Setter private GameGUIController gameGUIController;
+    // UI Controller
+    private UIController uiController = new UIController(this);
 
     // Game variables
     @Getter @Setter private User user;
     @Getter @Setter private ClientLobby lobby;
 
+    public ClientGameController() {
+        stompSessionHandler = new StompSessionHandler();
+        stompSessionHandler.setGameController(this);
+    }
 
     public void handleMessage(IResponse message) {
         switch (message.getAction()){
@@ -57,13 +56,13 @@ public class ClientGameController {
             case LETTER_TYPED:
                 LetterTyped letterTypedMessage = mapper.convertValue(message.getData(), LetterTyped.class);
                 Player player = letterTypedMessage.getPlayer();
-                gameGUIController.charTyped(player);
+                uiController.charTyped(player);
                 return;
             case NEW_WORD:
                 LetterTyped messageNewWord = mapper.convertValue(message.getData(), LetterTyped.class);
                 Player playerNewWord = messageNewWord.getPlayer();
                 Player playerOpponentNewWord = messageNewWord.getPlayerOpponent();
-                gameGUIController.newWord(playerNewWord, playerOpponentNewWord);
+                uiController.newWord(playerNewWord, playerOpponentNewWord);
                 return;
             case GAME_OVER:
                 EndGameResponse endGameResponse = mapper.convertValue(message.getData(), EndGameResponse.class);
@@ -79,33 +78,20 @@ public class ClientGameController {
 
     private void endGame(Player winner, Player loser) {
         session.disconnect();
-        gameGUIController.endGame(winner, loser);
+
+        uiController.endGame(winner, loser);
     }
 
     private void gameFound() {
         try {
-            lobbyController.onGameFound(stage);
+            uiController.onGameFound();
 
         }catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void goToLobby() throws IOException {
-        // Create lobby scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/lobby.fxml"));
-        Parent gameParent = loader.load();
-        Scene gameScene = new Scene(gameParent, 900, 500);
 
-        LobbyController controller = loader.getController();
-        controller.setGameController(this);
-
-        // Display lobby scene
-        Platform.runLater(() -> {
-            stage.setScene(gameScene);
-            stage.show();
-        });
-    }
 
     public void searchGame() {
         // Change subscription
@@ -136,4 +122,40 @@ public class ClientGameController {
         request.setData(letterTyped);
         session.send("/app/play/" + lobby.getId(), request);
     }
+
+    public void goToLobby() {
+        try {
+            LobbyController controller = (LobbyController)uiController.goToScene(Scenes.LOBBYSCENE);
+            controller.setUser(user);
+            controller.setGameController(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void login(User user) {
+        this.user = user;
+        LobbyController controller = null;
+        try {
+            controller = (LobbyController)uiController.goToScene(Scenes.LOBBYSCENE);
+            controller.setUser(user);
+            controller.setGameController(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void setStage(Stage stage) {
+        uiController.setStage(stage);
+    }
+
+    public void connect() {
+        String URL = "ws://localhost:8081/wordwarone";
+        WebSocketClient client = new StandardWebSocketClient();
+
+        WebSocketStompClient stompClient = new WebSocketStompClient(client);
+        stompClient.setMessageConverter(new MappingJackson2MessageConverter());
+
+        stompClient.connect(URL, stompSessionHandler);    }
 }
