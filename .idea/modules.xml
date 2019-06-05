@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/WordWarI.iml" filepath="$PROJECT_DIR$/.idea/WordWarI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WordWarShared/WordWarShared.iml" filepath="$PROJECT_DIR$/WordWarShared/WordWarShared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WordWarClient/wordwarclient.iml" filepath="$PROJECT_DIR$/WordWarClient/wordwarclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WordWarServer/wordwarserver.iml" filepath="$PROJECT_DIR$/WordWarServer/wordwarserver.iml" />
+    </modules>
+  </component>
+</project>
