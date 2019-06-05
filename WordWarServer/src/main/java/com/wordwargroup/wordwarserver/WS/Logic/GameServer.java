@@ -72,7 +72,7 @@ public class GameServer {
 
             response.setData(letterTypedMessage);
         }
-        
+
         return response;
 
     }
