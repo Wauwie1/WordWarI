@@ -41,12 +41,6 @@ public class ServerLobby implements ILobby {
         System.out.println("Game started.");
     }
 
-    public void attackPlayer(Player player, int amount){
-        int index = players.indexOf(player);
-        Player attackedPlayer = players.get(index);
-        attackedPlayer.removeLife(1);
-    }
-
     public boolean isFull(){
         if(players.size() == 2){
             return true;
@@ -80,4 +74,23 @@ public class ServerLobby implements ILobby {
         players = new ArrayList<>();
     }
 
+    public Player getPlayer(int playerId) throws Exception {
+        for (Player player: players) {
+            if(player.getUser().getId() == playerId) {
+                return player;
+            }
+        }
+
+        throw new Exception("No player found in lobby: " + id + ", with id: " + playerId);
+    }
+
+    public Player getOpponent(int playerId) throws Exception {
+        for (Player player: players) {
+            if(player.getUser().getId() != playerId) {
+                return player;
+            }
+        }
+
+        throw new Exception("No opponent found in lobby: " + id + ", with id: " + playerId);
+    }
 }

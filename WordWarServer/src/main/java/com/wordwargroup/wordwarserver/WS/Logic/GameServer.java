@@ -5,7 +5,6 @@ import Models.LetterTyped;
 import Models.Player;
 import Models.User;
 import Requests.Request;
-import Responses.EndGameResponse;
 import Responses.Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
@@ -18,7 +17,6 @@ public class GameServer {
     private final ObjectMapper mapper = new ObjectMapper();
     private final IDatabase database = new MySQLRepository();
     private ArrayList<ServerLobby> lobbies = new ArrayList<>();
-
 
     public GameServer() {
         lobbies.add(new ServerLobby(database));
@@ -46,64 +44,46 @@ public class GameServer {
         return response;
     }
 
-    public Response letterTyped(Request message){
+    public Response letterTyped(Request message, String id) throws Exception {
 
         // Read values from request
         LetterTyped letterTypedMessage =  mapper.convertValue(message.getData(), LetterTyped.class) ;
-        int lobbyId = Integer.parseInt(letterTypedMessage.getLobbyId());
-        letterTypedMessage.setLobbyId(String.valueOf(lobbyId));
+        int lobbyId = Integer.parseInt(id);
         char letter = letterTypedMessage.getLetter().charAt(0);
-        int playerId = letterTypedMessage.getPlayer().getUser().getId();
-        Player messagePlayer = null;
-        Player messagePlayerOpponent = null;
+        User user = letterTypedMessage.getPlayer().getUser();
+        int playerId = user.getId();
+
+        // Find the correct lobby
+        ServerLobby lobby = findInLobbies(lobbyId);
+
+        // Assign players
+        Player player = lobby.getPlayer(playerId);
+        Player opponent = lobby.getOpponent(playerId);
 
 
-        ServerLobby serverLobby = null;
+        // Generates response
+        TypeCharacterLogic typeCharacterLogic = new TypeCharacterLogic(player, opponent, lobby);
+        Response response = typeCharacterLogic.typeCharacter(letter);
+
+        if(response.getAction() != ServerToClient.GAME_OVER){
+            // Sets the perspective of the response
+            letterTypedMessage.setPlayer(player);
+            letterTypedMessage.setPlayerOpponent(opponent);
+
+            response.setData(letterTypedMessage);
+        }
+        
+        return response;
+
+    }
+
+    private ServerLobby findInLobbies(int lobbyId) throws Exception {
         for (ServerLobby lobby: lobbies) {
             if(lobby.getId() == lobbyId){
-                serverLobby = lobby;
+                return lobby;
             }
         }
-
-        for (Player player: serverLobby.getPlayers()) {
-            if(player.getUser().getId() == playerId) {
-                messagePlayer = player;
-            }else {
-                messagePlayerOpponent = player;
-            }
-        }
-
-        Response response = new Response();
-
-        messagePlayer.typeCharacter(letter);
-        if(messagePlayer.completedWord()) {
-            giveNewWord(messagePlayer, serverLobby);
-            messagePlayerOpponent.removeLife(10);
-            if(messagePlayerOpponent.getLives() <= 0) {
-                EndGameResponse endGameResponse = new EndGameResponse();
-                endGameResponse.setLoser(messagePlayerOpponent);
-                endGameResponse.setWinner(messagePlayer);
-                response.setAction(ServerToClient.GAME_OVER);
-                response.setData(endGameResponse);
-                serverLobby.reset();
-                return response;
-            } else {
-                response.setAction(ServerToClient.NEW_WORD);
-            }
-
-        } else {
-            response.setAction(ServerToClient.LETTER_TYPED);
-        }
-
-
-        letterTypedMessage.setPlayer(messagePlayer);
-        letterTypedMessage.setPlayerOpponent(messagePlayerOpponent);
-
-
-
-        response.setData(letterTypedMessage);
-
-        return response;
+        throw new Exception("No lobby found with lobbyId: " + lobbyId);
     }
 
     // TODO: Fix function
@@ -138,16 +118,9 @@ public class GameServer {
         return player;
     }
 
-    private void giveNewWord(Player player, ServerLobby lobby) {
-        String word = null;
-        try {
-            word = lobby.getNextWord(player.getCurrentWord());
-
-        }catch (NullPointerException exception) {
-            exception.printStackTrace();
-        }
-
-        System.out.println(word);
-        player.giveNewWord(word);
+    public void endGame(String id) throws Exception {
+        int lobbyId = Integer.valueOf(id);
+        ServerLobby lobby = findInLobbies(lobbyId);
+        lobby.reset();
     }
 }

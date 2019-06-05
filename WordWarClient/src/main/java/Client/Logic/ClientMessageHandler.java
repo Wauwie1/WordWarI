@@ -78,6 +78,9 @@ public class ClientMessageHandler {
     }
 
     private void endGame(Player winner, Player loser) {
+        IRequest request = new Request();
+        request.setAction(ClientToServer.END_GAME);
+        session.send("/app/play/" + lobby.getId(), request);
         session.disconnect();
 
         uiController.endGame(winner, loser);

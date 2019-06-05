@@ -2,5 +2,5 @@ package Actions;
 
 public enum ClientToServer {
     SEARCH_GAME,
-    LETTER_TYPED
+    END_GAME, LETTER_TYPED
 }

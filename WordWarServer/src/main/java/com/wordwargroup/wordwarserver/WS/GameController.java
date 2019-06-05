@@ -38,11 +38,16 @@ public class GameController {
         switch (message.getAction()) {
             case LETTER_TYPED:
                 // int intId = Integer.parseInt(id);
-                Response response = server.letterTyped(message);
-                return response;
+                Response responseTyped = server.letterTyped(message, id);
+                return responseTyped;
+            case END_GAME:
+                server.endGame(id);
+                break;
             default:
-                return null;
+                break;
         }
+
+        return null;
 
         // Thread.sleep(1000); // simulated delay
     }
