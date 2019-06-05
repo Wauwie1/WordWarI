@@ -1,4 +1,4 @@
-package com.wordwargroup.wordwarserver.WS;
+package com.wordwargroup.wordwarserver.WS.Logic;
 
 import Actions.ServerToClient;
 import Models.LetterTyped;

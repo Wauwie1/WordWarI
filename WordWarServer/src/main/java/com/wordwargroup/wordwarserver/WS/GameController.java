@@ -4,6 +4,7 @@ import Models.User;
 import Requests.Request;
 import Responses.Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wordwargroup.wordwarserver.WS.Logic.GameServer;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;

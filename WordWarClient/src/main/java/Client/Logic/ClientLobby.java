@@ -1,4 +1,4 @@
-package Client;
+package Client.Logic;
 
 import Interfaces.ILobby;
 import Models.GameState;

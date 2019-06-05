@@ -1,7 +1,7 @@
 package Client.GUIControllers;
 
-import Client.ClientGameController;
-import Client.ClientLobby;
+import Client.Logic.ClientMessageHandler;
+import Client.Logic.ClientLobby;
 import Client.Interfaces.IGUIController;
 import Models.Player;
 import Models.User;
@@ -32,7 +32,7 @@ public class GameGUIController implements IGUIController {
     @FXML public Label Label_End;
     @FXML public ImageView Black_Fade;
 
-    @Setter private ClientGameController gameController;
+    @Setter private ClientMessageHandler gameController;
     private Scene scene;
 
     private Player player;

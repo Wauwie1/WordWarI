@@ -1,4 +1,4 @@
-package com.wordwargroup.wordwarserver.WS;
+package com.wordwargroup.wordwarserver.WS.Logic;
 
 import Interfaces.ILobby;
 import Models.GameState;

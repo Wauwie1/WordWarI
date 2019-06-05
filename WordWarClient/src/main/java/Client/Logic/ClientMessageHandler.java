@@ -1,7 +1,8 @@
-package Client;
+package Client.Logic;
 
 import Actions.ClientToServer;
 import Client.GUIControllers.LobbyController;
+import Client.GUIControllers.Scenes;
 import Models.LetterTyped;
 import Models.Player;
 import Models.User;
@@ -21,7 +22,7 @@ import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 import java.io.IOException;
 
-public class ClientGameController {
+public class ClientMessageHandler {
 
     // WS
     private ObjectMapper mapper = new ObjectMapper();
@@ -35,7 +36,7 @@ public class ClientGameController {
     @Getter @Setter private User user;
     @Getter @Setter private ClientLobby lobby;
 
-    public ClientGameController() {
+    public ClientMessageHandler() {
         stompSessionHandler = new StompSessionHandler();
         stompSessionHandler.setGameController(this);
     }

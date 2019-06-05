@@ -1,5 +1,6 @@
-package Client;
+package Client.Logic;
 
+import Client.Interfaces.IStompSessionHandler;
 import Responses.IResponse;
 import Responses.Response;
 import org.springframework.messaging.simp.stomp.StompCommand;
@@ -9,11 +10,11 @@ import org.springframework.messaging.simp.stomp.StompSessionHandlerAdapter;
 
 import java.lang.reflect.Type;
 
-public class StompSessionHandler extends StompSessionHandlerAdapter {
+public class StompSessionHandler extends StompSessionHandlerAdapter implements IStompSessionHandler {
 
-    private ClientGameController gameController;
+    private ClientMessageHandler gameController;
 
-    public void setGameController(ClientGameController controller) {
+    public void setGameController(ClientMessageHandler controller) {
         this.gameController = controller;
         this.gameController.setStompSessionHandler(this);
     }
@@ -23,7 +24,6 @@ public class StompSessionHandler extends StompSessionHandlerAdapter {
         System.out.println("New session established : " + session.getSessionId());
         this.gameController.setSession(session);
         this.gameController.searchGame();
-
     }
 
     @Override

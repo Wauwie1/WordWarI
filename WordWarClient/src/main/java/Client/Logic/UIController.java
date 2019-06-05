@@ -1,8 +1,6 @@
-package Client;
+package Client.Logic;
 
-import Client.GUIControllers.GameGUIController;
-import Client.GUIControllers.LobbyController;
-import Client.GUIControllers.LoginController;
+import Client.GUIControllers.*;
 import Client.Interfaces.IGUIController;
 import Models.Player;
 import javafx.application.Platform;
@@ -21,9 +19,9 @@ public class UIController {
     @Setter private LoginController loginController;
     @Setter private LobbyController lobbyController;
     @Setter private GameGUIController gameGUIController;
-    private ClientGameController gameController;
+    private ClientMessageHandler gameController;
 
-    public UIController(ClientGameController gameController) {
+    public UIController(ClientMessageHandler gameController) {
         this.gameController = gameController;
     }
 

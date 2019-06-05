@@ -1,6 +1,6 @@
 package Client.GUIControllers;
 
-import Client.ClientGameController;
+import Client.Logic.ClientMessageHandler;
 import Client.Interfaces.IGUIController;
 import Client.Interfaces.ILoginRepository;
 import Client.Repositories.LoginRepository;
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 public class LoginController implements IGUIController {
 
     private ILoginRepository loginRepository;
-    private ClientGameController gameController;
+    private ClientMessageHandler gameController;
 
     @FXML public TextField Textfield_Username;
     @FXML public PasswordField Textfield_Password;
@@ -25,7 +25,7 @@ public class LoginController implements IGUIController {
 
     public LoginController() {
         loginRepository = new LoginRepository();
-        gameController = new ClientGameController();
+        gameController = new ClientMessageHandler();
 
     }
 
