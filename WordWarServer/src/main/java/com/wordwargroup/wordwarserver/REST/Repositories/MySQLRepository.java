@@ -29,7 +29,7 @@ public class MySQLRepository implements IDatabase {
     public User login(String username, String password) {
         User user = null;
         try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, "dbi402348", "Ifi4god#");
+                .getConnection(connectionUrl, "dbi402348", "Hoidoei123");
                 CallableStatement statement = connect.prepareCall(loginQuery)) {
 
             // Set IN and OUT parameters
@@ -63,7 +63,7 @@ public class MySQLRepository implements IDatabase {
     public String getWord(int id) {
         String word = null;
         try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, "dbi402348", "Ifi4god#");
+                .getConnection(connectionUrl, "dbi402348", "Hoidoei123");
               CallableStatement statement = connect.prepareCall(wordQuery)) {
 
             // Set IN and OUT parameters
@@ -88,7 +88,7 @@ public class MySQLRepository implements IDatabase {
         List<String> words = new ArrayList<>();
 
         try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, "dbi402348", "Ifi4god#");
+                .getConnection(connectionUrl, "dbi402348", "Hoidoei123");
         Statement statement = connect.createStatement();
         ResultSet resultSet = statement.executeQuery(randomWordQuery)) {
 

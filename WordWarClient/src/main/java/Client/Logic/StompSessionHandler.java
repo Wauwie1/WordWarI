@@ -12,18 +12,19 @@ import java.lang.reflect.Type;
 
 public class StompSessionHandler extends StompSessionHandlerAdapter implements IStompSessionHandler {
 
-    private ClientMessageHandler gameController;
+    private ClientMessageHandler messageHandler;
 
-    public void setGameController(ClientMessageHandler controller) {
-        this.gameController = controller;
-        this.gameController.setStompSessionHandler(this);
+
+    public void setMessageHandler(ClientMessageHandler handler) {
+        this.messageHandler = handler;
+        this.messageHandler.setSessionHandler(this);
     }
 
     @Override
     public void afterConnected(StompSession session, StompHeaders connectedHeaders) {
         System.out.println("New session established : " + session.getSessionId());
-        this.gameController.setSession(session);
-        this.gameController.searchGame();
+        this.messageHandler.setSession(session);
+        this.messageHandler.searchGame();
     }
 
     @Override
@@ -41,6 +42,6 @@ public class StompSessionHandler extends StompSessionHandlerAdapter implements I
     @Override
     public void handleFrame(StompHeaders headers, Object payload) {
         IResponse message = (Response) payload;
-        gameController.handleMessage(message);
+        messageHandler.handleMessage(message);
     }
 }

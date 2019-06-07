@@ -1,6 +1,6 @@
 package Client.GUIControllers;
 
-import Client.Logic.ClientMessageHandler;
+import Client.Logic.ClientLogic;
 import Client.Interfaces.IGUIController;
 import Models.User;
 import javafx.animation.Animation;
@@ -14,7 +14,7 @@ import lombok.Setter;
 
 public class LobbyController implements IGUIController {
 
-    @Setter private ClientMessageHandler gameController;
+    @Setter private ClientLogic logic;
     private User user;
 
     @FXML public Button Button_Play;
@@ -40,7 +40,7 @@ public class LobbyController implements IGUIController {
     }
 
     public void Button_Play_Click(ActionEvent actionEvent) {
-        gameController.connect();
+        logic.connect();
     }
 
 }

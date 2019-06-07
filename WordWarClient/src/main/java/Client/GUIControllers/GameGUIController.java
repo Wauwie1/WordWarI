@@ -1,6 +1,6 @@
 package Client.GUIControllers;
 
-import Client.Logic.ClientMessageHandler;
+import Client.Logic.ClientLogic;
 import Client.Logic.ClientLobby;
 import Client.Interfaces.IGUIController;
 import Models.Player;
@@ -32,7 +32,7 @@ public class GameGUIController implements IGUIController {
     @FXML public Label Label_End;
     @FXML public ImageView Black_Fade;
 
-    @Setter private ClientMessageHandler gameController;
+    @Setter private ClientLogic logic;
     private Scene scene;
 
     private Player player;
@@ -47,13 +47,13 @@ public class GameGUIController implements IGUIController {
 
     public void setKeyListener() {
         this.scene.setOnKeyPressed(e -> {
-            gameController.sendKeyPress(e.getText(), player);
+            logic.sendKeyPress(e.getText(), player);
         });
     }
 
     public void createGameField() {
-        ClientLobby lobby = gameController.getLobby();
-        User user = gameController.getUser();
+        ClientLobby lobby = logic.getLobby();
+        User user = logic.getUser();
         List<Player> players = lobby.getPlayers();
 
         for (Player player: players) {
@@ -151,6 +151,6 @@ public class GameGUIController implements IGUIController {
     }
 
     public void Button_Lobby_Click(ActionEvent actionEvent) {
-            gameController.goToLobby();
+            logic.goToLobby();
     }
 }

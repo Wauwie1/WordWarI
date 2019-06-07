@@ -19,10 +19,9 @@ public class UIController {
     @Setter private LoginController loginController;
     @Setter private LobbyController lobbyController;
     @Setter private GameGUIController gameGUIController;
-    private ClientMessageHandler gameController;
+    @Setter private ClientLogic logic;
 
-    public UIController(ClientMessageHandler gameController) {
-        this.gameController = gameController;
+    public UIController() {
     }
 
     public IGUIController goToScene(Scenes scene) throws IOException {
@@ -56,7 +55,7 @@ public class UIController {
         try {
             gameGUIController = (GameGUIController) goToScene(Scenes.GAMESCENE);
             gameGUIController.setKeyListener();
-            gameGUIController.setGameController(gameController);
+            gameGUIController.setLogic(logic);
             gameGUIController.createGameField();
         } catch (IOException e) {
             e.printStackTrace();

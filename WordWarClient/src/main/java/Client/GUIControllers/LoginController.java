@@ -1,6 +1,6 @@
 package Client.GUIControllers;
 
-import Client.Logic.ClientMessageHandler;
+import Client.Logic.ClientLogic;
 import Client.Interfaces.IGUIController;
 import Client.Interfaces.ILoginRepository;
 import Client.Repositories.LoginRepository;
@@ -12,11 +12,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lombok.Getter;
 
 public class LoginController implements IGUIController {
 
     private ILoginRepository loginRepository;
-    private ClientMessageHandler gameController;
+    @Getter private ClientLogic logic;
 
     @FXML public TextField Textfield_Username;
     @FXML public PasswordField Textfield_Password;
@@ -25,8 +26,7 @@ public class LoginController implements IGUIController {
 
     public LoginController() {
         loginRepository = new LoginRepository();
-        gameController = new ClientMessageHandler();
-
+        logic = new ClientLogic();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class LoginController implements IGUIController {
     public void Button_Login_Clicked(ActionEvent actionEvent) throws Exception {
         try {
             Stage stage = (Stage) AnchorPane_Main.getScene().getWindow();
-            gameController.setStage(stage);
+            logic.getUiController().setStage(stage);
             login();
         }catch (Exception exception) {
             System.out.println("Could not connect to server.");
@@ -52,7 +52,7 @@ public class LoginController implements IGUIController {
         User user = loginRepository.login(username, password);
 
         if(user != null) {
-            gameController.login(user);
+            logic.login(user);
         }else {
             Label_Error.setText("Incorrect password/username");
         }
