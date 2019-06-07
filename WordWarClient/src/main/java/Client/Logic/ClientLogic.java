@@ -22,7 +22,7 @@ public class ClientLogic {
 
     @Setter private StompSession session;
     @Setter @Getter private StompSessionHandler stompSessionHandler;
-    private ClientMessageHandler messageHandler;
+    @Getter private ClientMessageHandler messageHandler;
 
     // UI Controller
     @Setter @Getter private UIController uiController = new UIController();

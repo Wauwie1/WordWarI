@@ -4,6 +4,10 @@ import javafx.fxml.FXMLLoader;
 
 public class LoaderFactory {
     public FXMLLoader getLoader(Scenes sceneName) {
+        if(sceneName == null) {
+            return null;
+        }
+
         switch (sceneName) {
             case LOGINSCENE:
                 return new FXMLLoader(getClass().getResource("/login.fxml"));

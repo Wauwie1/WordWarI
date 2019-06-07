@@ -17,12 +17,9 @@ public class ClientMessageHandler {
 
     @Setter private ClientLogic logic;
 
-    public ClientMessageHandler() {
-        //sessionHandler = new StompSessionHandler();
-        //sessionHandler.setMessageHandler(this);
-    }
 
-    public void handleMessage(IResponse message) {
+    public void handleMessage(IResponse message) throws IllegalArgumentException {
+
         switch (message.getAction()){
             case SEARCHING:
                 System.out.println("Searching for opponent...");
