@@ -1,22 +1,28 @@
 package com.wordwargroup.wordwarserver.REST.Repositories;
 
 import Models.User;
+import com.github.windpapi4j.InitializationFailedException;
+import com.github.windpapi4j.WinAPICallFailedException;
+import com.github.windpapi4j.WinDPAPI;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class MySQLRepository implements IDatabase {
 
     String connectionUrl = "jdbc:mysql://studmysql01.fhict.local:3306/dbi402348";
     @Value("${db.user}")
     private String dbUsername = "dbi402348";
-    @Value("${db.pass}")
-    private String dbPassword = "Hoidoei123";
+    private static WinDPAPI winDPAPI;
+
+    private String secret = "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4C6Y9jPWR0i7GjNs5yAttQAAAAACAAAAAAAQZgAAAAEAACAAAABnYiSVAFtYxxbvYEA2Z4BrsbZqzEhXrBnbZ1fmAUINjQAAAAAOgAAAAAIAACAAAABke5tvXEPsxP7gIEqOmLMjk+c3bjkZvVCDznMLtwEFCRAAAADYDdykXf5N5PPsXfqtz+klQAAAALakMdV2f7FSko5M2dSGR0FtIYWhdqEpCECEXD3bVse+7L6gk5wwvtGTHooj9B5mAwcKZsq3IGQpUI7NFto1snI=";
 
     private String loginQuery = "{CALL Login(?, ?, ?, ?)}";
-    private String wordQuery = "{CALL GetWord(?, ?)}";
     private String randomWordQuery =
             " SELECT\n" +
             " Word\n" +
@@ -29,7 +35,7 @@ public class MySQLRepository implements IDatabase {
     public User login(String username, String password) {
         User user = null;
         try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, dbUsername, dbPassword);
+                .getConnection(connectionUrl, dbUsername, decrypt(secret));
                 CallableStatement statement = connect.prepareCall(loginQuery)) {
 
             // Set IN and OUT parameters
@@ -64,7 +70,7 @@ public class MySQLRepository implements IDatabase {
         List<String> words = new ArrayList<>();
 
         try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, dbUsername, dbPassword);
+                .getConnection(connectionUrl, dbUsername, decrypt(secret));
         Statement statement = connect.createStatement();
         ResultSet resultSet = statement.executeQuery(randomWordQuery)) {
 
@@ -81,5 +87,11 @@ public class MySQLRepository implements IDatabase {
         }
 
 
+    }
+
+    private String decrypt(String secret) throws WinAPICallFailedException, InitializationFailedException {
+        winDPAPI = WinDPAPI.newInstance(WinDPAPI.CryptProtectFlag.CRYPTPROTECT_UI_FORBIDDEN);
+        byte[] encryptedBytes = Base64.getDecoder().decode(secret);
+        return new String(winDPAPI.unprotectData(encryptedBytes), UTF_8);
     }
 }

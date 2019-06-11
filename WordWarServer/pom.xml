@@ -60,6 +60,14 @@
             <version>1.18.8</version>
             <scope>provided</scope>
         </dependency>
+
+
+        <!-- Encryption -->
+        <dependency>
+            <groupId>com.github.peter-gergely-horvath</groupId>
+            <artifactId>windpapi4j</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 
