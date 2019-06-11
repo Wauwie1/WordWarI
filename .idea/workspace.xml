@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WordWarShared/WordWarShared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarShared/WordWarShared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WordWarShared/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarShared/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WordWarShared/src/main/java/Responses/EndGameResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/WordWarShared/src/main/java/Responses/EndGameResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -137,11 +135,32 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/WordWarShared/src/test/java/ModelsTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="578">
+                <state relative-caret-position="726">
                   <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Requests/Request.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="88">
+                  <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/WordWarShared/src/test/java/RequestTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="418">
+                  <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -152,12 +171,33 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Models/LetterTyped.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="110">
                   <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Logic/ClientLogic.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="110">
+                  <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/pom.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="110">
+                  <caret line="5" selection-start-line="5" selection-end-line="5" />
                 </state>
               </provider>
             </entry>
@@ -197,7 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WordWarClient/src/main/java/Client/StompSessionHandler.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Requests/Request.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Responses/UserResponse.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/main/java/Responses/Response.java" />
@@ -227,7 +266,6 @@
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/Logic/GameServer.java" />
         <option value="$PROJECT_DIR$/WordWarServer/src/main/java/com/wordwargroup/wordwarserver/WS/GameController.java" />
         <option value="$PROJECT_DIR$/WordWarClient/src/test/java/Test.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/WordWarShared/pom.xml" />
         <option value="$PROJECT_DIR$/WordWarServer/pom.xml" />
         <option value="$PROJECT_DIR$/WordWarClient/pom.xml" />
@@ -248,6 +286,8 @@
         <option value="$PROJECT_DIR$/WordWarShared/src/test/java/ResponseTest.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/test/java/PlayerTest.java" />
         <option value="$PROJECT_DIR$/WordWarShared/src/test/java/ModelsTest.java" />
+        <option value="$PROJECT_DIR$/WordWarShared/src/test/java/RequestTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -275,6 +315,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -451,6 +493,24 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WordWarI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WordWarI" type="462c0819:PsiDirectoryNode" />
+              <item name="WordWarShared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WordWarI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WordWarI" type="462c0819:PsiDirectoryNode" />
+              <item name="WordWarShared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -490,8 +550,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -509,7 +567,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560236950137" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560240599275" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -550,7 +608,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in WordWarShared">
+  <component name="RunManager" selected="Spring Boot.WordwarserverApplication">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -709,9 +767,9 @@
       <item itemvalue="JUnit.All in wordwarclient" />
       <item itemvalue="JUnit.MessageHandlerTest" />
       <item itemvalue="JUnit.MessageHandlerTest.handlerGameFoundTest" />
-      <item itemvalue="Spring Boot.WordwarserverApplication" />
       <item itemvalue="JUnit.All in WordWarShared" />
       <item itemvalue="JUnit.ResponseTest.ResponseTest1" />
+      <item itemvalue="Spring Boot.WordwarserverApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -765,17 +823,12 @@
       <workItem from="1559757374065" duration="6469000" />
       <workItem from="1559770642716" duration="906000" />
       <workItem from="1559939904122" duration="2011000" />
-      <workItem from="1560234488570" duration="2303000" />
+      <workItem from="1560234488570" duration="2550000" />
+      <workItem from="1560238853568" duration="1114000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MessageHandlerTest_handlerGameFoundTest - 2019.06.08 at 01h 03m 27s.xml">
-      <configuration name="MessageHandlerTest.handlerGameFoundTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MessageHandlerTest - 2019.06.08 at 01h 03m 39s.xml">
-      <configuration name="MessageHandlerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_wordwarclient - 2019.06.08 at 01h 05m 11s.xml">
       <configuration name="All in wordwarclient" configurationId="JUnit" />
     </history-entry>
@@ -800,15 +853,21 @@
     <history-entry file="All_in_WordWarShared - 2019.06.11 at 09h 01m 07s.xml">
       <configuration name="All in WordWarShared" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_WordWarShared - 2019.06.11 at 09h 06m 43s.xml">
+      <configuration name="All in WordWarShared" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_WordWarShared - 2019.06.11 at 09h 09m 15s.xml">
+      <configuration name="All in WordWarShared" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132843000" />
+    <option name="totallyTimeSpent" value="134204000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1924307" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1945629" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Web" order="3" side_tool="true" />
@@ -818,7 +877,7 @@
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27410617" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27410617" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -941,13 +1000,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Interfaces/ILoginRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Interfaces/IGUIController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -1077,20 +1129,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Requests/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1195,16 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Logic/ClientLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1370,6 +1398,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/test/java/ModelsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Requests/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WordWarShared/src/test/java/RequestTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WordWarShared/src/main/java/Models/LetterTyped.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -1377,13 +1432,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WordWarShared/src/test/java/ModelsTest.java">
+    <entry file="file://$PROJECT_DIR$/WordWarClient/src/main/java/Client/Logic/ClientLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+        <state relative-caret-position="110">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
