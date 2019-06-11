@@ -61,12 +61,14 @@ public class GameGUIController implements IGUIController {
             }
         }
 
-        Label_Name_Player.setText(player.getUser().getUsername());
-        Label_Name_Opponent.setText(opponent.getUser().getUsername());
-        setNewWordPlayer();
-        setNewWordOpponent();
-        setLivesPlayer();
-        setLivesOpponent();
+        Platform.runLater(() -> {
+            Label_Name_Player.setText(player.getUser().getUsername());
+            Label_Name_Opponent.setText(opponent.getUser().getUsername());
+            setNewWordPlayer();
+            setNewWordOpponent();
+            setLivesPlayer();
+            setLivesOpponent();
+        });
     }
 
     private void setLivesOpponent() {

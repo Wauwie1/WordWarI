@@ -39,7 +39,7 @@ public class LobbyController implements IGUIController {
         System.out.println(this.user);
     }
 
-    public void Button_Play_Click(ActionEvent actionEvent) {
+    public void Button_Play_Click() {
         logic.connect();
     }
 

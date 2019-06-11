@@ -22,13 +22,34 @@ public class GameServer {
         lobbies.add(new ServerLobby(database));
     }
 
+//    public Response findMockMatch(User user) {
+//        Player player = createPlayer(user);
+//
+//
+//        ServerLobby lobby = lobbies.get(0);
+//        lobby.addPlayer(player);
+//        player.giveNewWord(lobby.getInitialWord());
+//
+//        Response response = new Response();
+//        if(lobby.isFull()){
+//            System.out.println("Opponent found");
+//            response.setAction(ServerToClient.GAME_FOUND);
+//        }else {
+//            System.out.println("Searching...");
+//            response.setAction(ServerToClient.SEARCHING);
+//
+//        }
+//        response.setData(lobby);
+//
+//        return response;
+//    }
+
+    // TODO: Fix function
     public Response findMockMatch(User user) {
         Player player = createPlayer(user);
 
-
-        ServerLobby lobby = lobbies.get(0);
+        ServerLobby lobby = findLobby();
         lobby.addPlayer(player);
-        player.giveNewWord(lobby.getInitialWord());
 
         Response response = new Response();
         if(lobby.isFull()){
@@ -42,6 +63,24 @@ public class GameServer {
         response.setData(lobby);
 
         return response;
+    }
+
+    private ServerLobby findLobby() {
+        if(lobbies.isEmpty()){
+            ServerLobby lobby = new ServerLobby(database);
+            return lobby;
+        }
+
+        for (ServerLobby lobby : lobbies) {
+            if (!lobby.isFull()) {
+                    return lobby;
+                }
+        }
+
+        ServerLobby lobby = new ServerLobby(database);
+        lobbies.add(lobby);
+        return lobby;
+
     }
 
     public Response letterTyped(Request message, String id) throws Exception {
@@ -86,28 +125,7 @@ public class GameServer {
         throw new Exception("No lobby found with lobbyId: " + lobbyId);
     }
 
-    // TODO: Fix function
-    public int findMatch(Player player) {
-        boolean isPlaced = false;
 
-        if(lobbies.isEmpty()){
-            ServerLobby lobby = new ServerLobby(database);
-            lobby.addPlayer(player);
-            isPlaced = true;
-            return lobby.getId();
-        }
-
-        for (ServerLobby lobby : lobbies) {
-                if(!isPlaced) {
-                    if (!lobby.isFull()) {
-                        lobby.addPlayer(player);
-                        isPlaced = true;
-                        return lobby.getId();
-                    }
-                }
-            }
-        return 0;
-    }
 
     private Player createPlayer(User user) {
         Player player = new Player();

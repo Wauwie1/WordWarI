@@ -5,7 +5,6 @@ import Client.Interfaces.IGUIController;
 import Client.Interfaces.ILoginRepository;
 import Client.Repositories.LoginRepository;
 import Models.User;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;

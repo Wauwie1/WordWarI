@@ -31,6 +31,7 @@ public class ServerLobby implements ILobby {
 
     public void addPlayer(Player player) {
         players.add(player);
+        player.giveNewWord(getInitialWord());
         if(players.size() == 2){
             startGame();
         }
