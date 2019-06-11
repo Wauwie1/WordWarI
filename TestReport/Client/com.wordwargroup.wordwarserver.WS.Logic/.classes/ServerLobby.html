@@ -1,0 +1,175 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ServerLobby</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.wordwargroup.wordwarserver.WS.Logic</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ServerLobby (com.wordwargroup.wordwarserver.WS.Logic)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ServerLobby</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    27,3%
+  </span>
+  <span class="absValue">
+    (3/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    35,1%
+  </span>
+  <span class="absValue">
+    (13/ 37)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.wordwargroup.wordwarserver.WS.Logic;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import Interfaces.ILobby;
+<i>4</i>&nbsp;import Models.GameState;
+<i>5</i>&nbsp;import Models.Player;
+<i>6</i>&nbsp;import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+<i>7</i>&nbsp;import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
+<i>8</i>&nbsp;import lombok.Getter;
+<i>9</i>&nbsp;import lombok.Setter;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import java.util.ArrayList;
+<i>12</i>&nbsp;import java.util.List;
+<i>13</i>&nbsp;import java.util.Random;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;@JsonIgnoreProperties(ignoreUnknown = true)
+<i>17</i>&nbsp;public class ServerLobby implements ILobby {
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;    private final Random rand = new Random();</b>
+<b class="nc"><i>20</i>&nbsp;    @Getter @Setter private int id;</b>
+<b class="fc"><i>21</i>&nbsp;    @Getter @Setter private List&lt;Player&gt; players = new ArrayList&lt;&gt;();</b>
+<i>22</i>&nbsp;    private List&lt;String&gt; words;
+<i>23</i>&nbsp;    private IDatabase database;
+<b class="fc"><i>24</i>&nbsp;    @Getter @Setter private GameState state = GameState.NOT_STARTED;</b>
+<i>25</i>&nbsp;
+<b class="fc"><i>26</i>&nbsp;    public ServerLobby(IDatabase database) {</b>
+<b class="fc"><i>27</i>&nbsp;        this.database = database;</b>
+<b class="fc"><i>28</i>&nbsp;        reset();</b>
+<b class="fc"><i>29</i>&nbsp;    }</b>
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    public void addPlayer(Player player) {
+<b class="nc"><i>33</i>&nbsp;        players.add(player);</b>
+<b class="nc"><i>34</i>&nbsp;        if(players.size() == 2){</b>
+<b class="nc"><i>35</i>&nbsp;            startGame();</b>
+<i>36</i>&nbsp;        }
+<b class="nc"><i>37</i>&nbsp;    }</b>
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    private void startGame() {
+<b class="nc"><i>40</i>&nbsp;        state = GameState.IN_PROGRESS;</b>
+<i>41</i>&nbsp;
+<b class="nc"><i>42</i>&nbsp;        System.out.println(&quot;Game started.&quot;);</b>
+<b class="nc"><i>43</i>&nbsp;    }</b>
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    public boolean isFull(){
+<b class="nc"><i>46</i>&nbsp;        return players.size() == 2;</b>
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    public String getNextWord(String currentWord) {
+<b class="nc"><i>50</i>&nbsp;        for (int i = 0; i &lt; words.size(); i++) {</b>
+<b class="nc"><i>51</i>&nbsp;            if(words.get(i).compareTo(currentWord) == 0) {</b>
+<b class="nc"><i>52</i>&nbsp;                return words.get(i + 1);</b>
+<i>53</i>&nbsp;            }
+<i>54</i>&nbsp;        }
+<i>55</i>&nbsp;
+<b class="nc"><i>56</i>&nbsp;        return null;</b>
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    public String getInitialWord() {
+<b class="nc"><i>60</i>&nbsp;        return words.get(0);</b>
+<i>61</i>&nbsp;    }
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    private void setRandomId() {
+<b class="fc"><i>64</i>&nbsp;        this.id = rand.nextInt(999);</b>
+<b class="fc"><i>65</i>&nbsp;    }</b>
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    public void reset() {
+<b class="fc"><i>68</i>&nbsp;        setRandomId();</b>
+<b class="fc"><i>69</i>&nbsp;        words = database.getWords();</b>
+<b class="fc"><i>70</i>&nbsp;        players = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>71</i>&nbsp;    }</b>
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;    public Player getPlayer(int playerId) throws Exception {
+<b class="nc"><i>74</i>&nbsp;        for (Player player: players) {</b>
+<b class="nc"><i>75</i>&nbsp;            if(player.getUser().getId() == playerId) {</b>
+<b class="nc"><i>76</i>&nbsp;                return player;</b>
+<i>77</i>&nbsp;            }
+<b class="nc"><i>78</i>&nbsp;        }</b>
+<i>79</i>&nbsp;
+<b class="nc"><i>80</i>&nbsp;        throw new Exception(&quot;No player found in lobby: &quot; + id + &quot;, with id: &quot; + playerId);</b>
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;    public Player getOpponent(int playerId) throws Exception {
+<b class="nc"><i>84</i>&nbsp;        for (Player player: players) {</b>
+<b class="nc"><i>85</i>&nbsp;            if(player.getUser().getId() != playerId) {</b>
+<b class="nc"><i>86</i>&nbsp;                return player;</b>
+<i>87</i>&nbsp;            }
+<b class="nc"><i>88</i>&nbsp;        }</b>
+<i>89</i>&nbsp;
+<b class="nc"><i>90</i>&nbsp;        throw new Exception(&quot;No opponent found in lobby: &quot; + id + &quot;, with id: &quot; + playerId);</b>
+<i>91</i>&nbsp;    }
+<i>92</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-11 11:54</div>
+</div>
+</body>
+</html>

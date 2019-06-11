@@ -89,7 +89,7 @@ public class MySQLRepository implements IDatabase {
 
     }
 
-    private String decrypt(String secret) throws WinAPICallFailedException, InitializationFailedException {
+    private static String decrypt(String secret) throws WinAPICallFailedException, InitializationFailedException {
         winDPAPI = WinDPAPI.newInstance(WinDPAPI.CryptProtectFlag.CRYPTPROTECT_UI_FORBIDDEN);
         byte[] encryptedBytes = Base64.getDecoder().decode(secret);
         return new String(winDPAPI.unprotectData(encryptedBytes), UTF_8);

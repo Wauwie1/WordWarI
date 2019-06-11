@@ -21,9 +21,6 @@ public class UIController {
     @Setter private GameGUIController gameGUIController;
     @Setter private ClientLogic logic;
 
-    public UIController() {
-    }
-
     public IGUIController goToScene(Scenes scene) throws IOException {
         // Create lobby scene
         FXMLLoader loader = loaderFactory.getLoader(scene);

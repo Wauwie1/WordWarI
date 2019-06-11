@@ -1,0 +1,117 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UserController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.wordwargroup.wordwarserver.REST</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UserController (com.wordwargroup.wordwarserver.REST)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    20%
+  </span>
+  <span class="absValue">
+    (2/ 10)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.wordwargroup.wordwarserver.REST;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import Models.User;
+<i>4</i>&nbsp;import Responses.IRestResponse;
+<i>5</i>&nbsp;import Responses.UserResponse;
+<i>6</i>&nbsp;import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
+<i>7</i>&nbsp;import com.wordwargroup.wordwarserver.REST.Repositories.MySQLRepository;
+<i>8</i>&nbsp;import org.springframework.web.bind.annotation.*;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;@RestController
+<b class="fc"><i>12</i>&nbsp;public class UserController {</b>
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;    private static final IDatabase database = new MySQLRepository();</b>
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    @CrossOrigin
+<i>17</i>&nbsp;    @RequestMapping(value = &quot;/login&quot;, method = RequestMethod.GET)
+<i>18</i>&nbsp;    public IRestResponse&lt;User&gt; login(@RequestParam(value=&quot;username&quot;, defaultValue=&quot;&quot;) String username,
+<i>19</i>&nbsp;                                     @RequestParam(value=&quot;password&quot;, defaultValue=&quot;&quot;) String password) {
+<i>20</i>&nbsp;
+<b class="nc"><i>21</i>&nbsp;        IRestResponse response = new UserResponse();</b>
+<b class="nc"><i>22</i>&nbsp;        User user = database.login(username, password);</b>
+<i>23</i>&nbsp;
+<b class="nc"><i>24</i>&nbsp;        if(user != null){</b>
+<b class="nc"><i>25</i>&nbsp;            response.setStatus(&quot;200&quot;);</b>
+<b class="nc"><i>26</i>&nbsp;            response.setValue(user);</b>
+<i>27</i>&nbsp;        }else {
+<b class="nc"><i>28</i>&nbsp;            response.setStatus(&quot;401&quot;);</b>
+<b class="nc"><i>29</i>&nbsp;            response.setValue(null);</b>
+<i>30</i>&nbsp;        }
+<i>31</i>&nbsp;
+<b class="nc"><i>32</i>&nbsp;        return response;</b>
+<i>33</i>&nbsp;    }
+<i>34</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-11 11:54</div>
+</div>
+</body>
+</html>

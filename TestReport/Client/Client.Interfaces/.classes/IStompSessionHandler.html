@@ -1,0 +1,61 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IStompSessionHandler</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">Client.Interfaces</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IStompSessionHandler (Client.Interfaces)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IStompSessionHandler</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package Client.Interfaces;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import org.springframework.messaging.simp.stomp.StompCommand;
+<i>4</i>&nbsp;import org.springframework.messaging.simp.stomp.StompHeaders;
+<i>5</i>&nbsp;import org.springframework.messaging.simp.stomp.StompSession;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.lang.reflect.Type;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public interface IStompSessionHandler {
+<i>10</i>&nbsp;    void afterConnected(StompSession session, StompHeaders connectedHeaders);
+<i>11</i>&nbsp;    void handleException(StompSession session, StompCommand command, StompHeaders headers, byte[] payload, Throwable exception);
+<i>12</i>&nbsp;    Type getPayloadType(StompHeaders headers);
+<i>13</i>&nbsp;    void handleFrame(StompHeaders headers, Object payload);
+<i>14</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-11 11:54</div>
+</div>
+</body>
+</html>

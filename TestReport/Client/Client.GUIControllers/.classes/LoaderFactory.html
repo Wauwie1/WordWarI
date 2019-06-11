@@ -1,0 +1,133 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: LoaderFactory</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">Client.GUIControllers</a> ]
+</div>
+
+<h1>Coverage Summary for Class: LoaderFactory (Client.GUIControllers)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LoaderFactory</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    11,1%
+  </span>
+  <span class="absValue">
+    (1/ 9)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">LoaderFactory$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    33,3%
+  </span>
+  <span class="absValue">
+    (1/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    10%
+  </span>
+  <span class="absValue">
+    (1/ 10)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package Client.GUIControllers;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import javafx.fxml.FXMLLoader;
+<i>4</i>&nbsp;
+<b class="fc"><i>5</i>&nbsp;public class LoaderFactory {</b>
+<i>6</i>&nbsp;    public FXMLLoader getLoader(Scenes sceneName) {
+<b class="nc"><i>7</i>&nbsp;        if(sceneName == null) {</b>
+<b class="nc"><i>8</i>&nbsp;            return null;</b>
+<i>9</i>&nbsp;        }
+<i>10</i>&nbsp;
+<b class="nc"><i>11</i>&nbsp;        switch (sceneName) {</b>
+<i>12</i>&nbsp;            case LOGINSCENE:
+<b class="nc"><i>13</i>&nbsp;                return new FXMLLoader(getClass().getResource(&quot;/login.fxml&quot;));</b>
+<i>14</i>&nbsp;            case LOBBYSCENE:
+<b class="nc"><i>15</i>&nbsp;                return new FXMLLoader(getClass().getResource(&quot;/lobby.fxml&quot;));</b>
+<i>16</i>&nbsp;            case GAMESCENE:
+<b class="nc"><i>17</i>&nbsp;                return new FXMLLoader(getClass().getResource(&quot;/game.fxml&quot;));</b>
+<i>18</i>&nbsp;                default:
+<b class="nc"><i>19</i>&nbsp;                    System.out.println(&quot;Unknown scene name.&quot;);</b>
+<b class="nc"><i>20</i>&nbsp;                    return null;</b>
+<i>21</i>&nbsp;        }
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    }
+<i>24</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-11 11:54</div>
+</div>
+</body>
+</html>
