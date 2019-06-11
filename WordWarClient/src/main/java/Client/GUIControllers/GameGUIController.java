@@ -38,9 +38,6 @@ public class GameGUIController implements IGUIController {
     private Player player;
     private Player opponent;
 
-    public void initialize(){
-    }
-
     public void setScene(Scene scene) {
         this.scene = scene;
     }
@@ -56,11 +53,11 @@ public class GameGUIController implements IGUIController {
         User user = logic.getUser();
         List<Player> players = lobby.getPlayers();
 
-        for (Player player: players) {
-            if(player.getUser().getId() == user.getId()) {
-                this.player = player;
+        for (Player gamePlayer: players) {
+            if(gamePlayer.getUser().getId() == user.getId()) {
+                this.player = gamePlayer;
             }else {
-                this.opponent = player;
+                this.opponent = gamePlayer;
             }
         }
 
@@ -138,7 +135,7 @@ public class GameGUIController implements IGUIController {
         });
     }
 
-    public void endGame(Player winner, Player loser) {
+    public void endGame(Player winner) {
         Platform.runLater(() -> {
             Black_Fade.setVisible(true);
             Pane_End.setVisible(true);
@@ -150,7 +147,7 @@ public class GameGUIController implements IGUIController {
         });
     }
 
-    public void Button_Lobby_Click(ActionEvent actionEvent) {
+    public void Button_Lobby_Click() {
             logic.goToLobby();
     }
 }

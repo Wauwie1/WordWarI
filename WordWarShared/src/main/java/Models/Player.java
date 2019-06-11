@@ -13,8 +13,6 @@ public class Player {
     @Getter private String currentWord;
     @Getter @Setter private String typedChars = "";
 
-    public Player(){
-    }
     public void removeLife(int amount) {
         lives -= amount;
     }

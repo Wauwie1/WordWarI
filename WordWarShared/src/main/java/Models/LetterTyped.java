@@ -11,8 +11,4 @@ public class LetterTyped {
     @Getter @Setter private Player playerOpponent;
     @Getter @Setter private String lobbyId;
 
-    public LetterTyped() {
-
-    }
-
 }

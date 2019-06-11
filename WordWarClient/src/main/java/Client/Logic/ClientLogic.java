@@ -57,13 +57,13 @@ public class ClientLogic {
         uiController.newWord(playerNewWord, playerOpponentNewWord);
     }
 
-    public void endGame(Player winner, Player loser) {
+    public void endGame(Player winner) {
         IRequest request = new Request();
         request.setAction(ClientToServer.END_GAME);
         session.send("/app/play/" + lobby.getId(), request);
         session.disconnect();
 
-        uiController.endGame(winner, loser);
+        uiController.endGame(winner);
     }
 
     public void searchGame() {

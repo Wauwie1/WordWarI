@@ -47,8 +47,8 @@ public class UIController {
 
     }
 
-    public void endGame(Player winner, Player loser) {
-        this.gameGUIController.endGame(winner, loser);
+    public void endGame(Player winner) {
+        this.gameGUIController.endGame(winner);
     }
 
     public void onGameFound() {

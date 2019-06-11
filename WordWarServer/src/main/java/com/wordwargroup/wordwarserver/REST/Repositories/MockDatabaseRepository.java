@@ -1,6 +1,7 @@
 package com.wordwargroup.wordwarserver.REST.Repositories;
 
 import Models.User;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.HashMap;
 import java.util.List;
@@ -37,12 +38,7 @@ public class MockDatabaseRepository implements IDatabase {
     }
 
     @Override
-    public String getWord(int id) {
-        return null;
-    }
-
-    @Override
     public List<String> getWords() {
-        return null;
+        throw new NotImplementedException();
     }
 }

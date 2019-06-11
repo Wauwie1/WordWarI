@@ -42,8 +42,7 @@ public class ClientMessageHandler {
             case GAME_OVER:
                 EndGameResponse endGameResponse = mapper.convertValue(message.getData(), EndGameResponse.class);
                 Player winner = endGameResponse.getWinner();
-                Player loser = endGameResponse.getLoser();
-                logic.endGame(winner, loser);
+                logic.endGame(winner);
                 return;
             default:
                 System.out.println("Received unknown action.");

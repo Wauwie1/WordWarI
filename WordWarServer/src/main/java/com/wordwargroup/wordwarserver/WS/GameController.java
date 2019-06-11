@@ -27,8 +27,6 @@ public class GameController {
             default:
                 return null;
         }
-
-        // Thread.sleep(1000); // simulated delay
     }
 
     @MessageMapping("/play/{id}")
@@ -37,7 +35,6 @@ public class GameController {
 
         switch (message.getAction()) {
             case LETTER_TYPED:
-                // int intId = Integer.parseInt(id);
                 Response responseTyped = server.letterTyped(message, id);
                 return responseTyped;
             case END_GAME:
@@ -48,7 +45,5 @@ public class GameController {
         }
 
         return null;
-
-        // Thread.sleep(1000); // simulated delay
     }
 }

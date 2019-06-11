@@ -9,7 +9,4 @@ import lombok.Setter;
 public class EndGameResponse {
     @Getter @Setter private Player winner;
     @Getter @Setter private Player loser;
-
-    public EndGameResponse() {}
-
 }

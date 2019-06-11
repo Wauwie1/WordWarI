@@ -16,6 +16,7 @@ import java.util.Random;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ServerLobby implements ILobby {
 
+    private final Random rand = new Random();
     @Getter @Setter private int id;
     @Getter @Setter private List<Player> players = new ArrayList<>();
     private List<String> words;
@@ -42,11 +43,7 @@ public class ServerLobby implements ILobby {
     }
 
     public boolean isFull(){
-        if(players.size() == 2){
-            return true;
-        }else {
-            return false;
-        }
+        return players.size() == 2;
     }
 
     public String getNextWord(String currentWord) {
@@ -64,7 +61,6 @@ public class ServerLobby implements ILobby {
     }
 
     private void setRandomId() {
-        Random rand = new Random();
         this.id = rand.nextInt(999);
     }
 

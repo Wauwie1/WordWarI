@@ -11,9 +11,9 @@ public class MySQLRepository implements IDatabase {
 
     String connectionUrl = "jdbc:mysql://studmysql01.fhict.local:3306/dbi402348";
     @Value("${db.user}")
-    private String username;
+    private String dbUsername = "dbi402348";
     @Value("${db.pass}")
-    private String password;
+    private String dbPassword = "Hoidoei123";
 
     private String loginQuery = "{CALL Login(?, ?, ?, ?)}";
     private String wordQuery = "{CALL GetWord(?, ?)}";
@@ -29,7 +29,7 @@ public class MySQLRepository implements IDatabase {
     public User login(String username, String password) {
         User user = null;
         try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, "dbi402348", "Hoidoei123");
+                .getConnection(connectionUrl, dbUsername, dbPassword);
                 CallableStatement statement = connect.prepareCall(loginQuery)) {
 
             // Set IN and OUT parameters
@@ -60,35 +60,11 @@ public class MySQLRepository implements IDatabase {
     }
 
     @Override
-    public String getWord(int id) {
-        String word = null;
-        try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, "dbi402348", "Hoidoei123");
-              CallableStatement statement = connect.prepareCall(wordQuery)) {
-
-            // Set IN and OUT parameters
-            statement.setInt(1, id);
-            statement.registerOutParameter(2, Types.NVARCHAR);
-
-            statement.execute();
-
-            // Get returned word
-            word = statement.getString(2);
-
-            return word;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return word;
-        }
-    }
-
-    @Override
     public List<String> getWords() {
         List<String> words = new ArrayList<>();
 
         try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, "dbi402348", "Hoidoei123");
+                .getConnection(connectionUrl, dbUsername, dbPassword);
         Statement statement = connect.createStatement();
         ResultSet resultSet = statement.executeQuery(randomWordQuery)) {
 

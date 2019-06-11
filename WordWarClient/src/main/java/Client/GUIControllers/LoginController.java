@@ -29,12 +29,7 @@ public class LoginController implements IGUIController {
         logic = new ClientLogic();
     }
 
-    @Override
-    public void initialize() {
-
-    }
-
-    public void Button_Login_Clicked(ActionEvent actionEvent) throws Exception {
+    public void Button_Login_Clicked() {
         try {
             Stage stage = (Stage) AnchorPane_Main.getScene().getWindow();
             logic.getUiController().setStage(stage);

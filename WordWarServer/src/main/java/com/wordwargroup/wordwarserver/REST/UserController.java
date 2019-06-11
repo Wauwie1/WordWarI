@@ -5,10 +5,7 @@ import Responses.IRestResponse;
 import Responses.UserResponse;
 import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
 import com.wordwargroup.wordwarserver.REST.Repositories.MySQLRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -17,7 +14,7 @@ public class UserController {
     private static final IDatabase database = new MySQLRepository();
 
     @CrossOrigin
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public IRestResponse<User> login(@RequestParam(value="username", defaultValue="") String username,
                                      @RequestParam(value="password", defaultValue="") String password) {
 

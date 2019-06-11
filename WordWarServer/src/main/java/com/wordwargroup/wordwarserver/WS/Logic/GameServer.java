@@ -90,7 +90,7 @@ public class GameServer {
     public int findMatch(Player player) {
         boolean isPlaced = false;
 
-        if(lobbies.size() == 0){
+        if(lobbies.isEmpty()){
             ServerLobby lobby = new ServerLobby(database);
             lobby.addPlayer(player);
             isPlaced = true;
@@ -119,7 +119,7 @@ public class GameServer {
     }
 
     public void endGame(String id) throws Exception {
-        int lobbyId = Integer.valueOf(id);
+        int lobbyId = Integer.parseInt(id);
         ServerLobby lobby = findInLobbies(lobbyId);
         lobby.reset();
     }
