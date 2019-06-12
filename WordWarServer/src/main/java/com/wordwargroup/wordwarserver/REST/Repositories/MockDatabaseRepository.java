@@ -3,6 +3,7 @@ package com.wordwargroup.wordwarserver.REST.Repositories;
 import Models.User;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,10 @@ public class MockDatabaseRepository implements IDatabase {
     }
     @Override
     public User login(String username, String password) {
+        if(username == null || password == null) {
+            return null;
+        }
+
         for(Map.Entry<User, String> entry : users.entrySet()) {
             User userKey = entry.getKey();
             if(userKey.getUsername().compareTo(username) == 0){
@@ -39,6 +44,19 @@ public class MockDatabaseRepository implements IDatabase {
 
     @Override
     public List<String> getWords() {
-        throw new NotImplementedException();
+        List<String> words = new ArrayList<>();
+        words.add("Telephone");
+        words.add("Television");
+        words.add("Washbasin");
+        words.add("Computer");
+        words.add("Radio");
+        words.add("Appliances");
+        words.add("Stereo");
+        words.add("Sound");
+        words.add("Music");
+        words.add("Screen");
+        words.add("Lights");
+
+        return words;
     }
 }

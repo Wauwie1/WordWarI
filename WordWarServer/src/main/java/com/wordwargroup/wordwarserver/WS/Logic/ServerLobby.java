@@ -88,6 +88,6 @@ public class ServerLobby implements ILobby {
             }
         }
 
-        throw new Exception("No opponent found in lobby: " + id + ", with id: " + playerId);
+        throw new Exception("No opponent found.");
     }
 }
