@@ -9,10 +9,12 @@ import Responses.Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wordwargroup.wordwarserver.REST.Repositories.IDatabase;
 import com.wordwargroup.wordwarserver.REST.Repositories.MySQLRepository;
+import lombok.extern.log4j.Log4j;
 
 
 import java.util.ArrayList;
 
+@Log4j
 public class GameServer {
     private final ObjectMapper mapper = new ObjectMapper();
     private final IDatabase database = new MySQLRepository();

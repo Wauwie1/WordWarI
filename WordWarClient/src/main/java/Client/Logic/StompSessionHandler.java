@@ -3,6 +3,7 @@ package Client.Logic;
 import Client.Interfaces.IStompSessionHandler;
 import Responses.IResponse;
 import Responses.Response;
+import lombok.extern.log4j.Log4j;
 import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
@@ -10,6 +11,7 @@ import org.springframework.messaging.simp.stomp.StompSessionHandlerAdapter;
 
 import java.lang.reflect.Type;
 
+@Log4j
 public class StompSessionHandler extends StompSessionHandlerAdapter implements IStompSessionHandler {
 
     private ClientMessageHandler messageHandler;
@@ -29,9 +31,8 @@ public class StompSessionHandler extends StompSessionHandlerAdapter implements I
 
     @Override
     public void handleException(StompSession session, StompCommand command, StompHeaders headers, byte[] payload, Throwable exception) {
-        System.out.println("Got an exception");
-        System.out.println(exception);
-        exception.printStackTrace();
+        log.error("Got an exception");
+        log.error(exception);
     }
 
     @Override

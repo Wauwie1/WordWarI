@@ -1,7 +1,9 @@
 package Client.GUIControllers;
 
 import javafx.fxml.FXMLLoader;
+import lombok.extern.log4j.Log4j;
 
+@Log4j
 public class LoaderFactory {
     public FXMLLoader getLoader(Scenes sceneName) {
         if(sceneName == null) {
@@ -16,7 +18,7 @@ public class LoaderFactory {
             case GAMESCENE:
                 return new FXMLLoader(getClass().getResource("/game.fxml"));
                 default:
-                    System.out.println("Unknown scene name.");
+                    log.error("Unknown scene name.");
                     return null;
         }
 

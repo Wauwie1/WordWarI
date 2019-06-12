@@ -6,8 +6,10 @@ import Responses.EndGameResponse;
 import Responses.IResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 import org.springframework.messaging.simp.stomp.StompSession;
 
+@Log4j
 public class ClientMessageHandler {
 
     // WS
@@ -45,7 +47,7 @@ public class ClientMessageHandler {
                 logic.endGame(winner);
                 return;
             default:
-                System.out.println("Received unknown action.");
+                log.error("Received unknown action.");
                 return;
         }
     }

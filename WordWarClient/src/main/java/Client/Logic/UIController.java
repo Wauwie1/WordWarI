@@ -9,9 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 
+@Log4j
 public class UIController {
 
     private LoaderFactory loaderFactory = new LoaderFactory();
@@ -55,7 +57,7 @@ public class UIController {
             gameGUIController.setLogic(logic);
             gameGUIController.createGameField();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e);
         }
 
     }

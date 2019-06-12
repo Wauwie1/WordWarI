@@ -5,7 +5,6 @@ import Client.Interfaces.IGUIController;
 import Models.User;
 import javafx.animation.Animation;
 import javafx.animation.ScaleTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

@@ -4,6 +4,7 @@ import Models.User;
 import com.github.windpapi4j.InitializationFailedException;
 import com.github.windpapi4j.WinAPICallFailedException;
 import com.github.windpapi4j.WinDPAPI;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.*;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+@Log4j
 public class MySQLRepository implements IDatabase {
 
     String connectionUrl = "jdbc:mysql://studmysql01.fhict.local:3306/dbi402348";
@@ -60,7 +62,7 @@ public class MySQLRepository implements IDatabase {
             return user;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
             return user;
         }
     }
@@ -82,7 +84,7 @@ public class MySQLRepository implements IDatabase {
             return words;
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
             return words;
         }
 
