@@ -14,8 +14,6 @@ public class ClientMessageHandler {
 
     // WS
     private ObjectMapper mapper = new ObjectMapper();
-    @Setter StompSessionHandler sessionHandler;
-
 
     @Setter private ClientLogic logic;
 

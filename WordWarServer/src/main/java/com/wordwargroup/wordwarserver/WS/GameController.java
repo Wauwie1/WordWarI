@@ -4,6 +4,7 @@ import Models.User;
 import Requests.Request;
 import Responses.Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wordwargroup.wordwarserver.REST.Repositories.MySQLRepository;
 import com.wordwargroup.wordwarserver.WS.Logic.GameServer;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class GameController {
-    private final GameServer server = new GameServer();
+    private final GameServer server = new GameServer(new MySQLRepository());
     private final ObjectMapper mapper = new ObjectMapper();
 
     @MessageMapping("/find")

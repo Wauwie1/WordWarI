@@ -19,7 +19,6 @@ public class StompSessionHandler extends StompSessionHandlerAdapter implements I
 
     public void setMessageHandler(ClientMessageHandler handler) {
         this.messageHandler = handler;
-        this.messageHandler.setSessionHandler(this);
     }
 
     @Override

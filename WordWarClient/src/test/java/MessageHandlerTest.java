@@ -1,5 +1,4 @@
 import Actions.ServerToClient;
-import Client.GUIControllers.LoaderFactory;
 import Client.Logic.ClientMessageHandler;
 import Responses.IResponse;
 import Responses.Response;

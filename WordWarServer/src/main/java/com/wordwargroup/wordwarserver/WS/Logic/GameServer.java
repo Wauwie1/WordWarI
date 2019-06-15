@@ -17,11 +17,13 @@ import java.util.ArrayList;
 @Log4j
 public class GameServer {
     private final ObjectMapper mapper = new ObjectMapper();
-    private final IDatabase database = new MySQLRepository();
+    private IDatabase database;
     private ArrayList<ServerLobby> lobbies = new ArrayList<>();
 
-    public GameServer() {
+    public GameServer(IDatabase database) {
+        this.database = database;
         lobbies.add(new ServerLobby(database));
+
     }
 
 //    public Response findMockMatch(User user) {

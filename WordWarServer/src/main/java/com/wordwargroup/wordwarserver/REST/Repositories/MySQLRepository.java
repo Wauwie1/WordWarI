@@ -37,7 +37,7 @@ public class MySQLRepository implements IDatabase {
     public User login(String username, String password) {
         User user = null;
         try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, dbUsername, decrypt(secret));
+                .getConnection(connectionUrl, dbUsername, "Hoidoei123");
                 CallableStatement statement = connect.prepareCall(loginQuery)) {
 
             // Set IN and OUT parameters
@@ -72,7 +72,7 @@ public class MySQLRepository implements IDatabase {
         List<String> words = new ArrayList<>();
 
         try ( Connection connect = DriverManager
-                .getConnection(connectionUrl, dbUsername, decrypt(secret));
+                .getConnection(connectionUrl, dbUsername, "Hoidoei123");
         Statement statement = connect.createStatement();
         ResultSet resultSet = statement.executeQuery(randomWordQuery)) {
 
@@ -84,7 +84,7 @@ public class MySQLRepository implements IDatabase {
             return words;
 
         } catch (Exception e) {
-            log.error(e);
+            e.printStackTrace();
             return words;
         }
 

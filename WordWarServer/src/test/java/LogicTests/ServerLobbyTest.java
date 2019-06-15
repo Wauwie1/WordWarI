@@ -7,10 +7,6 @@ import com.wordwargroup.wordwarserver.REST.Repositories.MockDatabaseRepository;
 import com.wordwargroup.wordwarserver.WS.Logic.ServerLobby;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -24,6 +20,11 @@ public class ServerLobbyTest {
         lobby = new ServerLobby(new MockDatabaseRepository());
     }
 
+    @Test
+    public void idTest() {
+        lobby.setId(5);
+        assertEquals(5, lobby.getId());
+    }
     @Test
     public void addPlayerTest() {
         assertEquals(0, lobby.getPlayers().size());
