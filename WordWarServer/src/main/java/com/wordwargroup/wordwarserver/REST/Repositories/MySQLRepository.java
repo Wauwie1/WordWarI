@@ -17,15 +17,15 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 @Log4j
 public class MySQLRepository implements IDatabase {
 
-    String connectionUrl = "jdbc:mysql://studmysql01.fhict.local:3306/dbi402348";
+    private final String connectionUrl = "jdbc:mysql://studmysql01.fhict.local:3306/dbi402348";
     @Value("${db.user}")
     private String dbUsername = "dbi402348";
     private static WinDPAPI winDPAPI;
 
-    private String secret = "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4C6Y9jPWR0i7GjNs5yAttQAAAAACAAAAAAAQZgAAAAEAACAAAABnYiSVAFtYxxbvYEA2Z4BrsbZqzEhXrBnbZ1fmAUINjQAAAAAOgAAAAAIAACAAAABke5tvXEPsxP7gIEqOmLMjk+c3bjkZvVCDznMLtwEFCRAAAADYDdykXf5N5PPsXfqtz+klQAAAALakMdV2f7FSko5M2dSGR0FtIYWhdqEpCECEXD3bVse+7L6gk5wwvtGTHooj9B5mAwcKZsq3IGQpUI7NFto1snI=";
+    private final String secret = "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4C6Y9jPWR0i7GjNs5yAttQAAAAACAAAAAAAQZgAAAAEAACAAAABnYiSVAFtYxxbvYEA2Z4BrsbZqzEhXrBnbZ1fmAUINjQAAAAAOgAAAAAIAACAAAABke5tvXEPsxP7gIEqOmLMjk+c3bjkZvVCDznMLtwEFCRAAAADYDdykXf5N5PPsXfqtz+klQAAAALakMdV2f7FSko5M2dSGR0FtIYWhdqEpCECEXD3bVse+7L6gk5wwvtGTHooj9B5mAwcKZsq3IGQpUI7NFto1snI=";
 
-    private String loginQuery = "{CALL Login(?, ?, ?, ?)}";
-    private String randomWordQuery =
+    private final String loginQuery = "{CALL Login(?, ?, ?, ?)}";
+    private final String randomWordQuery =
             " SELECT\n" +
             " Word\n" +
             " FROM\n" +

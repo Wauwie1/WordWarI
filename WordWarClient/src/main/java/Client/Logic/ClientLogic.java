@@ -19,7 +19,6 @@ import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 import java.io.IOException;
 
-@Log4j
 public class ClientLogic {
 
     @Setter private StompSession session;
@@ -105,7 +104,7 @@ public class ClientLogic {
             controller.setUser(user);
             controller.setLogic(this);
         } catch (IOException e) {
-            log.error(e);
+            e.printStackTrace();
         }
     }
 

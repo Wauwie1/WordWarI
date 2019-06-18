@@ -12,10 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lombok.Getter;
-import lombok.extern.log4j.Log4j;
-import org.apache.logging.log4j.Logger;
 
-@Log4j
 public class LoginController implements IGUIController {
 
 
@@ -38,7 +35,7 @@ public class LoginController implements IGUIController {
             logic.getUiController().setStage(stage);
             login();
         }catch (Exception exception) {
-            log.info("Could not connect to server.");
+            System.out.println("Could not connect to server.");
             Label_Error.setText("Could not connect to server");
         }
     }

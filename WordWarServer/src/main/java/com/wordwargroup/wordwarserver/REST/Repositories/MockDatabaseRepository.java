@@ -11,6 +11,7 @@ import java.util.Map;
 public class MockDatabaseRepository implements IDatabase {
 
     private Map<User, String> users;
+    private List<String> words;
 
     public MockDatabaseRepository() {
         users = new HashMap<>();
@@ -44,7 +45,7 @@ public class MockDatabaseRepository implements IDatabase {
 
     @Override
     public List<String> getWords() {
-        List<String> words = new ArrayList<>();
+        words = new ArrayList<>();
         words.add("Telephone");
         words.add("Television");
         words.add("Washbasin");

@@ -66,19 +66,9 @@ public class GameGUIController implements IGUIController {
             Label_Name_Opponent.setText(opponent.getUser().getUsername());
             setNewWordPlayer();
             setNewWordOpponent();
-            setLivesPlayer();
-            setLivesOpponent();
+            updateLivesPlayer();
+            updateLivesOpponent();
         });
-    }
-
-    private void setLivesOpponent() {
-        String lives = String.valueOf(player.getLives());
-        Label_Lives_Player.setText(lives);
-    }
-
-    private void setLivesPlayer() {
-        String lives = String.valueOf(opponent.getLives());
-        Label_Lives_Opponent.setText(lives);
     }
 
     public void charTyped(Player player) {
