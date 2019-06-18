@@ -22,7 +22,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Label_Error" alignment="CENTER" contentDisplay="CENTER" layoutX="390.0" layoutY="393.0" textAlignment="CENTER" textFill="RED">
+      <Label fx:id="Label_Error" alignment="CENTER" contentDisplay="CENTER" layoutX="365.0" layoutY="400.0" textAlignment="CENTER" textFill="RED">
          <font>
             <Font size="15.0" />
          </font>

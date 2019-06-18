@@ -36,6 +36,18 @@ public class MockRepoTest {
     }
 
     @Test
+    public void registerTest() {
+        User user = new User();
+        user.setPassword("ThisIsAPassword");
+        user.setUsername("Account200");
+
+        database.register(user);
+
+        User retrievedUser = database.login(user.getUsername(), user.getPassword());
+        assertNotNull(retrievedUser);
+    }
+
+    @Test
     public void wordsTest() {
         List<String> words = database.getWords();
         assertNotNull(words);

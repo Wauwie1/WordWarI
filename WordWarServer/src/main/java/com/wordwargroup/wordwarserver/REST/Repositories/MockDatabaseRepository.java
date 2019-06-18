@@ -21,6 +21,7 @@ public class MockDatabaseRepository implements IDatabase {
 
         users.put(user, "Wachtwoord123");
     }
+
     @Override
     public User login(String username, String password) {
         if(username == null || password == null) {
@@ -63,6 +64,7 @@ public class MockDatabaseRepository implements IDatabase {
 
     @Override
     public boolean register(User user) {
-        return false;
+        users.put(user, user.getPassword());
+        return true;
     }
 }
