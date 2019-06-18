@@ -6,6 +6,7 @@ import Responses.IResponse;
 import Responses.IRestResponse;
 import Responses.UserResponse;
 import lombok.extern.log4j.Log4j;
+import org.springframework.http.HttpEntity;
 import org.springframework.web.client.RestTemplate;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -28,7 +29,21 @@ public class LoginRepository implements ILoginRepository {
         return user;
     }
 
-    public boolean register() {
-        throw new NotImplementedException();
+    public boolean register(String username, String password) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        HttpEntity<User> request = new HttpEntity<>(user);
+        boolean success = false;
+        try {
+            success = restTemplate.postForObject(server + "register", request, Boolean.class);
+            return success;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return success;
+        }
     }
 }

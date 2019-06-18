@@ -8,4 +8,6 @@ import java.util.List;
 public interface IDatabase {
     User login(String username, String password);
     List<String> getWords();
+
+    boolean register(User user);
 }

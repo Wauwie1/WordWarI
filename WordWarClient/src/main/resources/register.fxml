@@ -22,7 +22,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Label_Error" alignment="CENTER" contentDisplay="CENTER" layoutX="432.0" layoutY="390.0" prefHeight="21.0" prefWidth="36.0" textAlignment="CENTER" textFill="RED">
+      <Label fx:id="Label_Error" alignment="CENTER" contentDisplay="CENTER" layoutX="390.0" layoutY="393.0" textAlignment="CENTER" textFill="RED">
          <font>
             <Font size="15.0" />
          </font>
@@ -32,13 +32,13 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="Textfield_Username" layoutX="375.0" layoutY="165.0" prefHeight="25.0" prefWidth="149.0" promptText="Username" text="sheeran0">
+      <TextField fx:id="Textfield_Username" layoutX="375.0" layoutY="165.0" prefHeight="25.0" prefWidth="149.0" promptText="Username">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </TextField>
-      <PasswordField fx:id="Textfield_Password" layoutX="375.0" layoutY="225.0" promptText="Password" text="2ZYqIBbtq" />
-      <PasswordField fx:id="Textfield_Password_Confirm" layoutX="375.0" layoutY="264.0" promptText="Password" text="2ZYqIBbtq" />
+      <PasswordField fx:id="Textfield_Password" layoutX="375.0" layoutY="225.0" promptText="Password" />
+      <PasswordField fx:id="Textfield_Password_Confirm" layoutX="375.0" layoutY="264.0" promptText="Confirm password" />
       <Label layoutX="296.0" layoutY="168.0" text="Username:" textFill="WHITE">
          <font>
             <Font size="14.0" />

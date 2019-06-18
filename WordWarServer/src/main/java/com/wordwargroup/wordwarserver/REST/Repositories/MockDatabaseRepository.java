@@ -60,4 +60,9 @@ public class MockDatabaseRepository implements IDatabase {
 
         return words;
     }
+
+    @Override
+    public boolean register(User user) {
+        return false;
+    }
 }

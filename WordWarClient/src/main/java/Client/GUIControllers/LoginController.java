@@ -16,7 +16,7 @@ import lombok.Getter;
 public class LoginController implements IGUIController {
 
 
-    private ILoginRepository loginRepository;
+    // private ILoginRepository loginRepository;
     @Getter private ClientLogic logic;
 
     @FXML public TextField Textfield_Username;
@@ -25,7 +25,6 @@ public class LoginController implements IGUIController {
     @FXML public AnchorPane AnchorPane_Main;
 
     public LoginController() {
-        loginRepository = new LoginRepository();
         logic = new ClientLogic();
 
     }
@@ -42,16 +41,14 @@ public class LoginController implements IGUIController {
     }
 
     private void login() {
+
         String username = Textfield_Username.getText();
         String password = Textfield_Password.getText();
-
-        User user = loginRepository.login(username, password);
-
-        if(user != null) {
-            logic.login(user);
-        }else {
+        boolean success = logic.login(username, password);
+        if(!success) {
             Label_Error.setText("Incorrect password/username");
         }
+
     }
 
 

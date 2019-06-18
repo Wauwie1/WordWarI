@@ -31,4 +31,12 @@ public class UserController {
 
         return response;
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public Boolean register(@RequestBody User user) {
+        Boolean success = database.register(user);
+
+        return success;
+    }
 }

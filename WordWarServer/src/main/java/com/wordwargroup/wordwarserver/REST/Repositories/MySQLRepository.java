@@ -14,7 +14,6 @@ import java.util.List;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-@Log4j
 public class MySQLRepository implements IDatabase {
 
     private final String connectionUrl = "jdbc:mysql://studmysql01.fhict.local:3306/dbi402348";
@@ -25,6 +24,7 @@ public class MySQLRepository implements IDatabase {
     private final String secret = "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4C6Y9jPWR0i7GjNs5yAttQAAAAACAAAAAAAQZgAAAAEAACAAAABnYiSVAFtYxxbvYEA2Z4BrsbZqzEhXrBnbZ1fmAUINjQAAAAAOgAAAAAIAACAAAABke5tvXEPsxP7gIEqOmLMjk+c3bjkZvVCDznMLtwEFCRAAAADYDdykXf5N5PPsXfqtz+klQAAAALakMdV2f7FSko5M2dSGR0FtIYWhdqEpCECEXD3bVse+7L6gk5wwvtGTHooj9B5mAwcKZsq3IGQpUI7NFto1snI=";
 
     private final String loginQuery = "{CALL Login(?, ?, ?, ?)}";
+    private final String regQuery = "{CALL Register(?, ?)}";
     private final String randomWordQuery =
             " SELECT\n" +
             " Word\n" +
@@ -62,7 +62,7 @@ public class MySQLRepository implements IDatabase {
             return user;
 
         } catch (Exception e) {
-            log.error(e);
+            e.printStackTrace();
             return user;
         }
     }
@@ -87,8 +87,26 @@ public class MySQLRepository implements IDatabase {
             e.printStackTrace();
             return words;
         }
+    }
 
+    @Override
+    public boolean register(User user) {
+        try ( Connection connect = DriverManager
+                .getConnection(connectionUrl, dbUsername, "Hoidoei123");
+              CallableStatement statement = connect.prepareCall(regQuery)) {
 
+            // Set IN and OUT parameters
+            statement.setString(1, user.getUsername());
+            statement.setString(2, user.getPassword());
+
+            statement.execute();
+
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private static String decrypt(String secret) throws WinAPICallFailedException, InitializationFailedException {

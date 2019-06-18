@@ -5,5 +5,5 @@ import Models.User;
 public interface ILoginRepository {
 
     User login(String username, String password);
-    boolean register();
+    boolean register(String username, String password);
 }

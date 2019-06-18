@@ -8,4 +8,5 @@ import lombok.Setter;
 public class User {
     @Getter @Setter private int id;
     @Getter @Setter private String username;
+    @Setter @Getter private String password;
 }

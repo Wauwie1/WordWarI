@@ -5,6 +5,8 @@ import Client.GUIControllers.LobbyController;
 import Client.GUIControllers.LoginController;
 import Client.GUIControllers.RegisterController;
 import Client.GUIControllers.Scenes;
+import Client.Interfaces.ILoginRepository;
+import Client.Repositories.LoginRepository;
 import Models.LetterTyped;
 import Models.Player;
 import Models.User;
@@ -23,6 +25,7 @@ import java.io.IOException;
 
 public class ClientLogic {
 
+    private ILoginRepository loginRepository;
     @Setter private StompSession session;
     @Setter @Getter private StompSessionHandler stompSessionHandler;
     @Getter private ClientMessageHandler messageHandler;
@@ -36,6 +39,7 @@ public class ClientLogic {
     @Getter @Setter private ClientLobby lobby;
 
     public ClientLogic() {
+        loginRepository = new LoginRepository();
         messageHandler = new ClientMessageHandler();
         messageHandler.setLogic(this);
         stompSessionHandler = new StompSessionHandler();
@@ -100,9 +104,16 @@ public class ClientLogic {
     }
 
 
-    public void login(User user) {
-        this.user = user;
-        goToLobby();
+    public boolean login(String username, String password) {
+        User user = loginRepository.login(username, password);
+
+        if(user != null) {
+            this.user = user;
+            goToLobby();
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public void connect() {
@@ -117,7 +128,7 @@ public class ClientLogic {
 
 
     public void goToLobby() {
-        LobbyController controller = null;
+        LobbyController controller;
         try {
             controller = (LobbyController)uiController.goToScene(Scenes.LOBBYSCENE);
             controller.setUser(user);
@@ -128,7 +139,7 @@ public class ClientLogic {
     }
 
     public void goToRegister() {
-        RegisterController controller = null;
+        RegisterController controller;
         try {
             controller = (RegisterController)uiController.goToScene(Scenes.REGISTERSCENE);
             controller.setLogic(this);
@@ -138,12 +149,16 @@ public class ClientLogic {
     }
 
     public void goToLogin() {
-        LoginController controller = null;
+        LoginController controller;
         try {
             controller = (LoginController) uiController.goToScene(Scenes.LOGINSCENE);
             controller.setLogic(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean register(String username, String password) {
+        return loginRepository.register(username, password);
     }
 }
