@@ -2,6 +2,8 @@ package Client.Logic;
 
 import Actions.ClientToServer;
 import Client.GUIControllers.LobbyController;
+import Client.GUIControllers.LoginController;
+import Client.GUIControllers.RegisterController;
 import Client.GUIControllers.Scenes;
 import Models.LetterTyped;
 import Models.Player;
@@ -97,16 +99,6 @@ public class ClientLogic {
         session.send("/app/play/" + lobby.getId(), request);
     }
 
-    public void goToLobby() {
-        LobbyController controller = null;
-        try {
-            controller = (LobbyController)uiController.goToScene(Scenes.LOBBYSCENE);
-            controller.setUser(user);
-            controller.setLogic(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void login(User user) {
         this.user = user;
@@ -121,5 +113,37 @@ public class ClientLogic {
         stompClient.setMessageConverter(new MappingJackson2MessageConverter());
 
         stompClient.connect(URL, stompSessionHandler);
+    }
+
+
+    public void goToLobby() {
+        LobbyController controller = null;
+        try {
+            controller = (LobbyController)uiController.goToScene(Scenes.LOBBYSCENE);
+            controller.setUser(user);
+            controller.setLogic(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void goToRegister() {
+        RegisterController controller = null;
+        try {
+            controller = (RegisterController)uiController.goToScene(Scenes.REGISTERSCENE);
+            controller.setLogic(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void goToLogin() {
+        LoginController controller = null;
+        try {
+            controller = (LoginController) uiController.goToScene(Scenes.LOGINSCENE);
+            controller.setLogic(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

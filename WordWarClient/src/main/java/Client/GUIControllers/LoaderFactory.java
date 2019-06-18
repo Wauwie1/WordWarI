@@ -17,6 +17,8 @@ public class LoaderFactory {
                 return new FXMLLoader(getClass().getResource("/lobby.fxml"));
             case GAMESCENE:
                 return new FXMLLoader(getClass().getResource("/game.fxml"));
+            case REGISTERSCENE:
+                return new FXMLLoader(getClass().getResource("/register.fxml"));
                 default:
                     log.error("Unknown scene name.");
                     return null;

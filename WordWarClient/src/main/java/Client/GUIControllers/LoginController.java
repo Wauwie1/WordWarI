@@ -27,6 +27,7 @@ public class LoginController implements IGUIController {
     public LoginController() {
         loginRepository = new LoginRepository();
         logic = new ClientLogic();
+
     }
 
     public void Button_Login_Clicked() {
@@ -54,4 +55,15 @@ public class LoginController implements IGUIController {
     }
 
 
+    public void Button_ToRegister_Clicked() {
+        Stage stage = (Stage) AnchorPane_Main.getScene().getWindow();
+        logic.getUiController().setStage(stage);
+
+        logic.goToRegister();
+    }
+
+    @Override
+    public void setLogic(ClientLogic logic) {
+        this.logic = logic;
+    }
 }
