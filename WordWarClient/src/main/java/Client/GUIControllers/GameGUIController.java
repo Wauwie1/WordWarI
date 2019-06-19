@@ -133,8 +133,10 @@ public class GameGUIController implements IGUIController {
             Pane_End.setVisible(true);
             if(player.getUser().getId() == winner.getUser().getId()) {
                 Label_End.setText("YOU'VE WON!");
+                Label_Lives_Opponent.setText("0");
             }else if(opponent.getUser().getId() == winner.getUser().getId()) {
                 Label_End.setText("You've lost...");
+                Label_Lives_Player.setText("0");
             }
         });
     }
